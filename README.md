@@ -11,6 +11,7 @@ pull requests, issues et workflows — sans le terminal au quotidien.
 
 [Télécharger la dernière version](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest)
 · [Site du projet](https://begy02300.github.io/Gestion-GitHub-graphique/)
+· [Guide d’installation](https://begy02300.github.io/Gestion-GitHub-graphique/installation.html)
 · [Feuille de route](docs/roadmap.md)
 · [Journal des changements](CHANGELOG.md)
 
@@ -54,7 +55,41 @@ SHA-256.
 |---|---|---|
 | Windows 10/11, x64 | `github-desk-windows-x64-vX.Y.Z.zip` | WebView2 et GitHub CLI (`gh`) |
 | macOS | `github-desk-macos-ARCH-vX.Y.Z.zip` | GitHub CLI (`gh`), architecture indiquée dans le nom |
-| Linux, x64 | `github-desk-linux-x64-vX.Y.Z.tar.gz` | GTK 3, WebKit2GTK 4.1 et GitHub CLI (`gh`) |
+| Linux, x64 | `github-desk-linux-x64-vX.Y.Z.tar.gz` | GTK 3, WebKit2GTK 4.1, PyGObject et GitHub CLI (`gh`) |
+
+### Dépendances Linux par distribution
+
+Le paquet Linux est construit sur Ubuntu 24.04 : privilégie un système x86_64
+récent avec glibc 2.38 ou supérieure et WebKitGTK 4.1.
+
+**Debian 13+ / Ubuntu 24.04+**
+
+```sh
+sudo apt update
+sudo apt install gh git libgtk-3-0 libwebkit2gtk-4.1-0 python3-gi gir1.2-gtk-3.0 gir1.2-webkit2-4.1
+```
+
+**Fedora 40+**
+
+```sh
+sudo dnf install gh git gtk3 webkit2gtk4.1 python3-gobject
+```
+
+**Arch Linux et dérivées**
+
+```sh
+sudo pacman -Syu github-cli git gtk3 webkit2gtk-4.1 python-gobject
+```
+
+**openSUSE Leap 16+ / Tumbleweed**
+
+```sh
+sudo zypper refresh
+sudo zypper install gh git gtk3 libwebkit2gtk-4_1-0 python3-gobject
+```
+
+Les autres versions et les étapes détaillées pour Windows et macOS sont dans le
+[guide d'installation complet](https://begy02300.github.io/Gestion-GitHub-graphique/installation.html).
 
 Git est aussi requis pour archiver des dépôts. Connecte ton compte une première
 fois avec `gh auth login`. Cette étape est faite volontairement par toi ; les
@@ -106,11 +141,9 @@ générées à partir des changements GitHub et triées par catégorie ; le dét
 des fonctionnalités livrées est aussi conservé dans le
 [changelog](CHANGELOG.md).
 
-Le site est publié automatiquement quand `docs/` change. Pour la première
-publication, un administrateur du dépôt doit activer Pages une fois dans
-**Settings → Pages**, avec **GitHub Actions** comme source. Après cette
-configuration, les publications sont automatiques. Cette étape initiale ne
-peut pas être réalisée par le `GITHUB_TOKEN` standard du workflow.
+GitHub Pages est activé pour ce dépôt et le premier déploiement a réussi. Les
+modifications de `docs/`, du README ou du changelog déclenchent automatiquement
+les publications suivantes.
 
 ## Feuille de route
 
@@ -158,6 +191,7 @@ qu'après action explicite : connecte uniquement des programmes de confiance.
 ## Documentation et liens
 
 - [Site de présentation](https://begy02300.github.io/Gestion-GitHub-graphique/)
+- [Guide d'installation Windows, macOS et Linux](https://begy02300.github.io/Gestion-GitHub-graphique/installation.html)
 - [Journal des changements](CHANGELOG.md)
 - [Feuille de route](docs/roadmap.md)
 - [Releases et téléchargements](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases)

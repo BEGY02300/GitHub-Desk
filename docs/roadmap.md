@@ -57,7 +57,8 @@ flowchart TB
 
 ### Expérience utilisateur
 
-- [ ] Ajouter des guides d'installation illustrés pour les trois systèmes.
+- [x] Ajouter un guide d'installation pour Windows, macOS et les distributions
+  Linux courantes.
 - [ ] Rendre les erreurs de dépendances système plus explicites dans l'app.
 - [ ] Ajouter des captures d'écran réelles, avec données personnelles masquées.
 

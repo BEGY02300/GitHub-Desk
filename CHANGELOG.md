@@ -8,6 +8,10 @@ fonctionnalités du projet.
 
 ### Ajouté
 
+- Guide d'installation pour Windows, macOS, Debian/Ubuntu, Fedora, Arch et
+  openSUSE.
+- Détail des prérequis WebView2, GTK 3, WebKitGTK et GitHub CLI par système.
+- Activation de GitHub Pages pour le dépôt et premier déploiement réussi du site.
 - Publication automatique du site GitHub Pages après les changements dans
   `docs/`, avec vérification de ses fichiers avant déploiement.
 - Présentation du produit, aperçu illustré, documentation et feuille de route.
@@ -28,6 +32,12 @@ fonctionnalités du projet.
   exécution.
 - Plan d'archivage vérifiable avant exécution, avec confirmation avant les
   opérations destructives.
+
+### Déploiement et documentation
+
+- Activation initiale de GitHub Pages pour le dépôt ; le workflow de
+  déploiement a ensuite terminé avec succès.
+- Vérification des pages et illustrations du site avant leur publication.
 
 ### Expérience et intégration
 

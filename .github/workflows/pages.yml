@@ -32,8 +32,10 @@ jobs:
         shell: bash
         run: |
           test -s docs/index.html
+          test -s docs/installation.html
           test -s docs/style.css
           test -s docs/assets/github-desk.svg
+          test -s docs/assets/app-preview.svg
       - name: Configuration de GitHub Pages
         uses: actions/configure-pages@v5
       - name: Préparation du site

@@ -109,6 +109,25 @@ h2 { margin: 10px 0; font-size: clamp(30px, 4vw, 43px); line-height: 1.1; letter
 .highlight p { margin: 0; color: var(--muted); font-size: 13px; }
 .highlight code { color: #c3d3f0; font-size: .92em; }
 .project-links { margin-top: 21px; }
+.install-page { padding-top: 30px; }
+.install-intro { padding: 55px 0 42px; }
+.install-intro h1 { font-size: clamp(40px, 5vw, 58px); }
+.install-section { max-width: 860px; min-width: 0; padding: 54px 0; }
+.install-section h2 { margin: 10px 0 20px; }
+.install-section h3 { margin: 26px 0 10px; font-size: 17px; }
+.install-section p { color: var(--muted); }
+.install-section a { color: #a9c2ff; }
+.steps { display: grid; gap: 16px; padding-left: 24px; color: var(--muted); }
+.steps li { min-width: 0; overflow-wrap: anywhere; padding-left: 5px; }
+.steps li::marker { color: var(--cyan); font-weight: 750; }
+.install-section code { overflow-wrap: anywhere; color: #d3def0; font: .92em Consolas, "SFMono-Regular", monospace; }
+.install-section pre { max-width: 100%; overflow-x: auto; margin: 11px 0 16px; padding: 15px 17px; border: 1px solid #293a55; border-radius: 10px; background: #080e19; color: #d3def0; font: 13px/1.65 Consolas, "SFMono-Regular", monospace; }
+.install-section pre code { color: inherit; }
+.distro { margin: 18px 0; padding: 8px 18px 1px; border: 1px solid var(--border); border-radius: 13px; background: #101a2a; }
+.distro h3 { margin-top: 13px; }
+.distro pre { border-color: #293a55; }
+.callout { margin: 22px 0; padding: 16px 18px; border: 1px solid #31516a; border-radius: 11px; background: #122335; color: #c4d5e8; }
+.warning-callout { border-color: #65502d; background: #292319; color: #e7d4a9; }
 .trust { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
 .trust-panel { padding: 25px; border: 1px solid var(--border); border-radius: 16px; background: #101a2a; }
 .trust-list { display: grid; gap: 15px; margin: 0; padding: 0; list-style: none; }
@@ -131,6 +150,7 @@ h2 { margin: 10px 0; font-size: clamp(30px, 4vw, 43px); line-height: 1.1; letter
 }
 @media (max-width: 620px) {
   .nav-links a:not(.button) { display: none; }
+  .nav-links .nav-source { display: none; }
   .features, .highlights, .platforms { grid-template-columns: 1fr; }
   .window-body { grid-template-columns: 90px 1fr; }
   .mock-sidebar { font-size: 9px; }
@@ -138,6 +158,9 @@ h2 { margin: 10px 0; font-size: clamp(30px, 4vw, 43px); line-height: 1.1; letter
   .mock-stat { padding: 7px; }
   .mock-stat b { font-size: 14px; }
   .download { padding: 27px 19px; }
+  .install-page { width: min(100% - 28px, 1120px); }
+  .install-section { padding: 40px 0; }
+  .install-section pre { font-size: 11px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
