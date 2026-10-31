@@ -223,6 +223,18 @@ h2 { margin: 10px 0; font-size: clamp(30px, 4vw, 43px); line-height: 1.1; letter
 .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; }
 .footer a { color: #455876; text-decoration: none; }
 .footer a:hover { color: #172033; text-decoration: underline; }
+.consent-settings { padding: 0; border: 0; background: transparent; color: #455876; font: inherit; text-decoration: underline; cursor: pointer; }
+.consent-settings:focus-visible, .consent-button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.consent-panel { position: fixed; z-index: 5; right: 20px; bottom: 20px; left: 20px; display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: 1000px; margin: 0 auto; padding: 20px 24px; border: 1px solid #dce3f0; border-radius: 18px; background: #fff; box-shadow: 0 16px 48px #1720332b; }
+.consent-panel[hidden] { display: none; }
+.consent-copy { max-width: 680px; }
+.consent-copy strong { font-size: 15px; }
+.consent-copy p { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+.consent-copy a { color: #315fce; }
+.consent-status:empty { display: none; }
+.consent-actions { display: flex; flex-shrink: 0; gap: 10px; }
+.consent-button { min-height: 42px; padding: 0 16px; border: 1px solid var(--border); border-radius: 11px; background: #fff; color: var(--text); font: inherit; font-size: 13px; font-weight: 650; cursor: pointer; }
+.consent-button-primary { border-color: #315fce; background: #315fce; color: #fff; }
 @media (max-width: 850px) {
   .hero { grid-template-columns: 1fr; padding: 68px 0; }
   .product-card { max-width: 620px; transform: none; }
@@ -231,6 +243,8 @@ h2 { margin: 10px 0; font-size: clamp(30px, 4vw, 43px); line-height: 1.1; letter
   .nav { gap: 12px; }
   .nav-links { gap: 12px; font-size: 12px; }
   .nav-links .nav-source { display: none; }
+  .consent-panel { align-items: stretch; flex-direction: column; gap: 14px; }
+  .consent-actions { justify-content: flex-end; }
 }
 @media (max-width: 620px) {
   .nav-links a:not(.button) { display: none; }
@@ -246,6 +260,8 @@ h2 { margin: 10px 0; font-size: clamp(30px, 4vw, 43px); line-height: 1.1; letter
   .release-topline, .release-bottom, .activity-heading { align-items: flex-start; flex-direction: column; }
   .activity-heading { gap: 10px; }
   .checksum-links { gap: 11px; }
+  .consent-panel { right: 10px; bottom: 10px; left: 10px; padding: 16px; }
+  .consent-actions { display: grid; grid-template-columns: 1fr 1fr; }
   .install-page { width: min(100% - 28px, 1120px); }
   .install-section { padding: 40px 0; }
   .installation-choice { padding-top: 65px; padding-bottom: 65px; }

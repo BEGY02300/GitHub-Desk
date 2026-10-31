@@ -4,23 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f6f9">
-  <meta name="description" content="Mentions légales et informations sur la confidentialité du site GitHub Desk.">
+  <meta name="description" content="Mentions légales, confidentialité et informations sur les cookies du site GitHub Desk.">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="GitHub Desk">
   <meta property="og:title" content="Mentions légales et confidentialité — GitHub Desk">
-  <meta property="og:description" content="Informations sur l’éditeur, l’hébergement GitHub Pages et les données utilisées par le site GitHub Desk.">
+  <meta property="og:description" content="Informations sur l’éditeur, l’hébergement, les cookies et les données utilisées par le site GitHub Desk.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://begy02300.github.io/GitHub-Desk/legal.html">
   <meta property="og:image" content="https://begy02300.github.io/GitHub-Desk/assets/app-preview.svg">
   <meta property="og:image:alt" content="Aperçu de GitHub Desk">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mentions légales et confidentialité — GitHub Desk">
-  <meta name="twitter:description" content="Informations sur l’éditeur, l’hébergement GitHub Pages et les données du site GitHub Desk.">
+  <meta name="twitter:description" content="Informations sur l’éditeur, l’hébergement, les cookies et les données du site GitHub Desk.">
   <meta name="twitter:image" content="https://begy02300.github.io/GitHub-Desk/assets/app-preview.svg">
   <link rel="canonical" href="https://begy02300.github.io/GitHub-Desk/legal.html">
   <title>Mentions légales &amp; confidentialité — GitHub Desk</title>
   <link rel="icon" href="assets/github-desk.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <script src="consent.js" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -82,7 +83,9 @@
       <div class="eyebrow">Confidentialité</div>
       <h2>Données utilisées par le site</h2>
       <ul class="steps">
-        <li>Le site n’intègre pas de publicité, d’outil de mesure d’audience ni de formulaire de collecte. Il n’installe pas de cookie de suivi ni de stockage local volontaire.</li>
+        <li>Google Tag Manager (identifiant de conteneur GTM-W38XTKK7) sert à gérer les balises du site, mais ne mesure pas à lui seul l’audience. Le conteneur n’est chargé qu’après votre acceptation dans la bannière. Si vous refusez, il n’est pas chargé. Vous pouvez modifier ou retirer votre choix avec le bouton « Paramètres des cookies » en bas de chaque page.</li>
+        <li>Votre choix est conservé dans le stockage local de votre navigateur afin de ne pas vous redemander à chaque visite. Après acceptation, si des balises de mesure sont configurées, Google et les services concernés peuvent recevoir des données techniques et de navigation (par exemple adresse IP, navigateur, appareil et pages consultées) et utiliser des cookies. Les cookies exacts et leur durée dépendent des balises et de la configuration publiée du conteneur.</li>
+        <li>Google peut traiter ces données selon sa <a href="https://policies.google.com/privacy">politique de confidentialité</a>. Le responsable du site doit vérifier et maintenir à jour la configuration des balises, les finalités, les durées de conservation et les informations relatives aux cookies utilisés.</li>
         <li>Pour afficher les versions et les derniers changements, la page d’accueil interroge l’API publique de GitHub depuis ton navigateur. GitHub reçoit donc la requête et les informations techniques habituelles associées à celle-ci ; consulte sa politique de confidentialité pour en savoir plus.</li>
         <li>Les liens vers GitHub ou d’autres sites ouvrent leurs propres services et politiques. Cette page ne contrôle pas les données collectées par ces tiers.</li>
         <li>L’application de bureau est distincte du site : son cache est conservé localement sur l’appareil. Les identifiants GitHub sont gérés par GitHub CLI ; consulte le code source et le README pour le détail des données locales.</li>
@@ -110,7 +113,19 @@
     <div class="container footer-row">
       <span>GitHub Desk · Projet indépendant, non affilié à GitHub.</span>
       <span><a href="./">Accueil</a> · <a href="installation.html">Installation</a> · <a href="https://github.com/BEGY02300/GitHub-Desk">Code source</a></span>
+      <button class="consent-settings" type="button" data-consent-open hidden>Paramètres des cookies</button>
     </div>
   </footer>
+  <aside class="consent-panel" data-consent-panel hidden aria-label="Choix concernant les cookies">
+    <div class="consent-copy">
+      <strong>Votre choix concernant les cookies</strong>
+      <p>Google Tag Manager sert à gérer les balises de mesure d’audience. Il ne sera chargé qu’après votre accord. Vous pouvez refuser ou modifier votre choix à tout moment. <a href="legal.html">En savoir plus</a>.</p>
+      <p class="consent-status" data-consent-status role="status" aria-live="polite"></p>
+    </div>
+    <div class="consent-actions">
+      <button class="consent-button consent-button-primary" type="button" data-consent-accept>Accepter</button>
+      <button class="consent-button" type="button" data-consent-reject>Refuser</button>
+    </div>
+  </aside>
 </body>
 </html>
