@@ -107,7 +107,7 @@ sequenceDiagram
 
 ## Proposer une amélioration
 
-Ouvre une [issue](https://github.com/BEGY02300/Gestion-GitHub-graphique/issues)
+Ouvre une [issue](https://github.com/BEGY02300/GitHub-Desk/issues)
 avec le système, la version et les étapes pour reproduire le besoin. N'inclus
 pas de jeton GitHub, de mot de passe ni de données privées. La procédure de
 signalement privé de vulnérabilité reste à publier : n'ajoute pas les détails

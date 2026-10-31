@@ -1,6 +1,6 @@
-<div align="center">
-
-<img src="assets/github-desk.svg" width="104" alt="Icône GitHub Desk">
+<p align="center">
+  <img src="assets/github-desk.svg" width="104" alt="Icône GitHub Desk">
+</p>
 
 # GitHub Desk
 
@@ -9,10 +9,10 @@
 Une application de bureau en français pour gérer tes dépôts, branches,
 pull requests, issues et workflows — sans le terminal au quotidien.
 
-[Télécharger la dernière version](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest)
-· [Site du projet](https://begy02300.github.io/Gestion-GitHub-graphique/)
-· [Guide d’installation](https://begy02300.github.io/Gestion-GitHub-graphique/installation.html)
-· [Mentions légales](https://begy02300.github.io/Gestion-GitHub-graphique/legal.html)
+[Télécharger la dernière version](https://github.com/BEGY02300/GitHub-Desk/releases/latest)
+· [Site du projet](https://begy02300.github.io/GitHub-Desk/)
+· [Guide d’installation](https://begy02300.github.io/GitHub-Desk/installation.html)
+· [Mentions légales](https://begy02300.github.io/GitHub-Desk/legal.html)
 · [Feuille de route](docs/roadmap.md)
 · [Journal des changements](CHANGELOG.md)
 
@@ -20,8 +20,6 @@ pull requests, issues et workflows — sans le terminal au quotidien.
 ![macOS](https://img.shields.io/badge/macOS-build%20automatique-111111?logo=apple)
 ![Linux](https://img.shields.io/badge/Linux-build%20automatique-FCC624?logo=linux&logoColor=111)
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
-
-</div>
 
 ---
 
@@ -48,10 +46,10 @@ vérifier les changements en ligne.
 ## Télécharger
 
 Les versions publiées sont construites automatiquement pour Windows, macOS et
-Linux par GitHub Actions. Le [site du projet](https://begy02300.github.io/Gestion-GitHub-graphique/)
+Linux par GitHub Actions. Le [site du projet](https://begy02300.github.io/GitHub-Desk/)
 récupère la dernière release, ses paquets, ses sommes SHA-256 et les commits
 récents directement depuis l'API GitHub. Tu peux aussi ouvrir la
-[dernière release](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest)
+[dernière release](https://github.com/BEGY02300/GitHub-Desk/releases/latest)
 et choisir l'archive de ton système.
 
 Le guide d'installation propose deux parcours : installation graphique avec le
@@ -98,7 +96,7 @@ sudo zypper install gh git gtk3 libwebkit2gtk-4_1-0 python3-gobject
 ```
 
 Les autres versions et les étapes détaillées pour Windows et macOS sont dans le
-[guide d'installation complet](https://begy02300.github.io/Gestion-GitHub-graphique/installation.html).
+[guide d'installation complet](https://begy02300.github.io/GitHub-Desk/installation.html).
 
 Git est aussi requis pour archiver des dépôts. Connecte ton compte une première
 fois avec `gh auth login`. Cette étape est faite volontairement par toi ; les
@@ -161,9 +159,9 @@ déploiement Pages.
 Le dépôt contient `docs/robots.txt` et `docs/sitemap.xml` pour aider les moteurs
 de recherche à découvrir les pages publiques. Pour accélérer leur découverte,
 une personne propriétaire du site peut ajouter
-`https://begy02300.github.io/Gestion-GitHub-graphique/` dans
+`https://begy02300.github.io/GitHub-Desk/` dans
 [Google Search Console](https://search.google.com/search-console/) et y envoyer
-`https://begy02300.github.io/Gestion-GitHub-graphique/sitemap.xml`. L’exploration
+`https://begy02300.github.io/GitHub-Desk/sitemap.xml`. L’exploration
 et l’indexation prennent du temps et ne garantissent pas une position précise
 dans les résultats.
 
@@ -212,12 +210,12 @@ qu'après action explicite : connecte uniquement des programmes de confiance.
 
 ## Documentation et liens
 
-- [Site de présentation](https://begy02300.github.io/Gestion-GitHub-graphique/)
-- [Guide d'installation Windows, macOS et Linux](https://begy02300.github.io/Gestion-GitHub-graphique/installation.html)
-- [Mentions légales et confidentialité](https://begy02300.github.io/Gestion-GitHub-graphique/legal.html)
+- [Site de présentation](https://begy02300.github.io/GitHub-Desk/)
+- [Guide d'installation Windows, macOS et Linux](https://begy02300.github.io/GitHub-Desk/installation.html)
+- [Mentions légales et confidentialité](https://begy02300.github.io/GitHub-Desk/legal.html)
 - [Journal des changements](CHANGELOG.md)
 - [Feuille de route](docs/roadmap.md)
-- [Releases et téléchargements](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases)
-- [Signaler un problème](https://github.com/BEGY02300/Gestion-GitHub-graphique/issues)
+- [Releases et téléchargements](https://github.com/BEGY02300/GitHub-Desk/releases)
+- [Signaler un problème](https://github.com/BEGY02300/GitHub-Desk/issues)
 
 GitHub Desk est un projet indépendant et n'est pas affilié à GitHub.

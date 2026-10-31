@@ -1,4 +1,4 @@
-const repository = "BEGY02300/Gestion-GitHub-graphique";
+const repository = "BEGY02300/GitHub-Desk";
 const api = `https://api.github.com/repos/${repository}`;
 const latestReleaseUrl = `https://github.com/${repository}/releases/latest`;
 

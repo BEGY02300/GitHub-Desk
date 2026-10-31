@@ -8,8 +8,8 @@
   <meta property="og:title" content="Installer GitHub Desk — guide graphique ou terminal">
   <meta property="og:description" content="Téléchargez et installez GitHub Desk sur Windows, macOS ou Linux avec un guide visuel ou les commandes terminal.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://begy02300.github.io/Gestion-GitHub-graphique/installation.html">
-  <link rel="canonical" href="https://begy02300.github.io/Gestion-GitHub-graphique/installation.html">
+  <meta property="og:url" content="https://begy02300.github.io/GitHub-Desk/installation.html">
+  <link rel="canonical" href="https://begy02300.github.io/GitHub-Desk/installation.html">
   <title>Installation — GitHub Desk</title>
   <link rel="icon" href="assets/github-desk.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
@@ -24,7 +24,7 @@
       <div class="nav-links">
         <a href="./">Accueil</a>
         <a href="./#fonctionnalites">Fonctionnalités</a>
-        <a class="button" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest">Télécharger</a>
+        <a class="button" href="https://github.com/BEGY02300/GitHub-Desk/releases/latest">Télécharger</a>
       </div>
     </nav>
   </header>
@@ -57,7 +57,7 @@
       <div class="eyebrow">Windows 10 et 11 · x64</div>
       <h2>Windows, avec l’Explorateur.</h2>
       <ol class="steps">
-        <li>Ouvrez <a href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest">la dernière version GitHub</a> et téléchargez <code>github-desk-windows-x64-…zip</code>. Les fichiers SHA-256 sont sur la même page.</li>
+        <li>Ouvrez <a href="https://github.com/BEGY02300/GitHub-Desk/releases/latest">la dernière version GitHub</a> et téléchargez <code>github-desk-windows-x64-…zip</code>. Les fichiers SHA-256 sont sur la même page.</li>
         <li>Dans l’Explorateur de fichiers, ouvrez <em>Téléchargements</em>, faites un clic droit sur l’archive et choisissez <em>Extraire tout…</em>.</li>
         <li>Ouvrez le dossier extrait. Gardez <code>GitHubDesk.exe</code> et le dossier <code>_internal</code> ensemble, puis double-cliquez sur <code>GitHubDesk.exe</code>.</li>
         <li>Si Windows signale que WebView2 manque, installez le <a href="https://developer.microsoft.com/microsoft-edge/webview2/">runtime WebView2 officiel</a>, puis relancez l’application.</li>
@@ -69,7 +69,7 @@
       <div class="eyebrow">macOS · choisissez l’architecture de votre Mac</div>
       <h2>macOS, avec le Finder.</h2>
       <ol class="steps">
-        <li>Ouvrez <a href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest">la dernière version GitHub</a>. Téléchargez l’archive macOS et choisissez l’architecture indiquée pour votre Mac.</li>
+        <li>Ouvrez <a href="https://github.com/BEGY02300/GitHub-Desk/releases/latest">la dernière version GitHub</a>. Téléchargez l’archive macOS et choisissez l’architecture indiquée pour votre Mac.</li>
         <li>Dans le Finder, ouvrez <em>Téléchargements</em>, puis double-cliquez sur l’archive ZIP pour l’extraire.</li>
         <li>Faites glisser <em>GitHub Desk.app</em> dans le dossier <em>Applications</em>, puis ouvrez l’application.</li>
         <li>Si macOS affiche un avertissement, ne désactivez pas ses protections. Les versions actuelles ne sont pas signées/notariées ; n’ouvrez pas une application bloquée par Gatekeeper.</li>
@@ -109,7 +109,7 @@ sudo zypper install gh git gtk3 libwebkit2gtk-4_1-0 python3-gobject</code></pre>
       </details>
 
       <ol class="steps">
-        <li>Téléchargez <code>github-desk-linux-x64-…tar.gz</code> depuis <a href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest">la dernière version</a>.</li>
+        <li>Téléchargez <code>github-desk-linux-x64-…tar.gz</code> depuis <a href="https://github.com/BEGY02300/GitHub-Desk/releases/latest">la dernière version</a>.</li>
         <li>Dans le gestionnaire de fichiers, faites un clic droit sur l’archive et choisissez <em>Extraire ici</em>.</li>
         <li>Ouvrez le dossier <em>GitHubDesk</em> et lancez <em>GitHubDesk</em>. Si votre environnement demande une confirmation, autorisez l’exécution du fichier téléchargé après avoir vérifié sa provenance.</li>
       </ol>
@@ -130,7 +130,7 @@ gh auth login</code></pre>
         <pre><code>
 $folder = Join-Path $HOME ("Downloads\GitHubDesk-" + [guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory -Force -Path $folder | Out-Null
-gh release download --repo BEGY02300/Gestion-GitHub-graphique --pattern "github-desk-windows-x64-*.zip" --pattern "SHA256SUMS-*-windows.txt" --dir $folder
+gh release download --repo BEGY02300/GitHub-Desk --pattern "github-desk-windows-x64-*.zip" --pattern "SHA256SUMS-*-windows.txt" --dir $folder
 if ($LASTEXITCODE -ne 0) { throw "Échec du téléchargement GitHub." }
 $archive = Get-ChildItem $folder -Filter "github-desk-windows-x64-*.zip" | Select-Object -First 1
 $sums = Get-ChildItem $folder -Filter "SHA256SUMS-*-windows.txt" | Select-Object -First 1
@@ -159,7 +159,7 @@ case "$(uname -m)" in
 esac
 folder="$(mktemp -d "$HOME/Downloads/GitHubDesk.XXXXXX")"
 cd "$folder"
-gh release download --repo BEGY02300/Gestion-GitHub-graphique --pattern "github-desk-macos-${arch}-*.zip" --pattern "SHA256SUMS-*-darwin.txt"
+gh release download --repo BEGY02300/GitHub-Desk --pattern "github-desk-macos-${arch}-*.zip" --pattern "SHA256SUMS-*-darwin.txt"
 archive="$(find . -maxdepth 1 -name "github-desk-macos-${arch}-*.zip" -print -quit)"
 sums="$(find . -maxdepth 1 -name 'SHA256SUMS-*-darwin.txt' -print -quit)"
 expected="$(grep -F "  ${archive#./}" "$sums" | awk 'NR == 1 {print $1}')"
@@ -178,7 +178,7 @@ open "GitHub Desk.app"</code></pre>
         <pre><code>mkdir -p "$HOME/Downloads"
 folder="$(mktemp -d "$HOME/Downloads/GitHubDesk.XXXXXX")"
 cd "$folder"
-gh release download --repo BEGY02300/Gestion-GitHub-graphique --pattern "github-desk-linux-x64-*.tar.gz" --pattern "SHA256SUMS-*-linux.txt"
+gh release download --repo BEGY02300/GitHub-Desk --pattern "github-desk-linux-x64-*.tar.gz" --pattern "SHA256SUMS-*-linux.txt"
 archive="$(find . -maxdepth 1 -name 'github-desk-linux-x64-*.tar.gz' -print -quit)"
 sums="$(find . -maxdepth 1 -name 'SHA256SUMS-*-linux.txt' -print -quit)"
 expected="$(grep -F "  ${archive#./}" "$sums" | awk 'NR == 1 {print $1}')"
@@ -208,14 +208,14 @@ cd GitHubDesk
       <div class="eyebrow">Téléchargements vérifiables</div>
       <h2>Un avertissement de sécurité ?</h2>
       <p>Les builds ne sont pas encore signés par un éditeur. La somme SHA-256 permet de vérifier que le fichier téléchargé correspond à celui publié, mais ne constitue pas une signature. Ne désactivez pas l’antivirus ou Gatekeeper pour lancer un fichier qu’ils bloquent. Consultez le code source et signalez tout faux positif à l’éditeur concerné.</p>
-      <p>Consultez <a href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases">les notes et tous les fichiers de release</a> avant l’installation.</p>
+      <p>Consultez <a href="https://github.com/BEGY02300/GitHub-Desk/releases">les notes et tous les fichiers de release</a> avant l’installation.</p>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer-row">
       <span>GitHub Desk · Guide d’installation</span>
-      <span><a href="./">Accueil</a> · <a href="legal.html">Mentions légales &amp; confidentialité</a> · <a href="https://github.com/BEGY02300/Gestion-GitHub-graphique">Code source</a> · <a href="https://github.com/BEGY02300/Gestion-GitHub-graphique/issues">Aide</a></span>
+      <span><a href="./">Accueil</a> · <a href="legal.html">Mentions légales &amp; confidentialité</a> · <a href="https://github.com/BEGY02300/GitHub-Desk">Code source</a> · <a href="https://github.com/BEGY02300/GitHub-Desk/issues">Aide</a></span>
     </div>
   </footer>
 </body>

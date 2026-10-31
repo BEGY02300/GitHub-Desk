@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://begy02300.github.io/Gestion-GitHub-graphique/sitemap.xml
+Sitemap: https://begy02300.github.io/GitHub-Desk/sitemap.xml
