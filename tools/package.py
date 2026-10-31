@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import os
 import platform
+import re
 import shutil
 import subprocess
 import sys
@@ -18,6 +19,12 @@ def run() -> Path:
     os.chdir(ROOT)
     subprocess.run([sys.executable, "tools/build_assets.py"], check=True)
     build_assets = ROOT / "build" / "assets"
+    version = os.environ.get("GITHUB_DESK_VERSION", "").strip()
+    if version and not re.fullmatch(
+        r"v\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?",
+        version,
+    ):
+        raise ValueError(f"Version invalide pour l'archive : {version}")
     system = platform.system()
     app_name = "GitHub Desk" if system == "Darwin" else "GitHubDesk"
     icon = {
@@ -77,12 +84,24 @@ def run() -> Path:
         raise FileNotFoundError(f"PyInstaller n'a pas créé l'application : {app_dir}")
     shutil.copy2(ROOT / "README.md", app_dir.parent / "README.md")
 
+    version_suffix = f"-{version}" if version else ""
     archive_name = {
-        "Windows": "github-desk-windows-x64.zip",
-        "Darwin": f"github-desk-macos-{platform.machine().lower()}.zip",
-        "Linux": "github-desk-linux-x64.tar.gz",
+        "Windows": f"github-desk-windows-x64{version_suffix}.zip",
+        "Darwin": (
+            f"github-desk-macos-{platform.machine().lower()}{version_suffix}.zip"
+        ),
+        "Linux": f"github-desk-linux-x64{version_suffix}.tar.gz",
     }[system]
     archive = dist / archive_name
+    dist.mkdir(exist_ok=True)
+    for pattern in (
+        "github-desk-windows-*.zip",
+        "github-desk-macos-*.zip",
+        "github-desk-linux-*.tar.gz",
+        "SHA256SUMS-*.txt",
+    ):
+        for previous_artifact in dist.glob(pattern):
+            previous_artifact.unlink()
     archive_root = dist / "package"
     if archive_root.exists():
         shutil.rmtree(archive_root)
@@ -99,7 +118,7 @@ def run() -> Path:
     )
     shutil.rmtree(archive_root)
     digest = hashlib.sha256(archive.read_bytes()).hexdigest()
-    sums = dist / f"SHA256SUMS-{system.lower()}.txt"
+    sums = dist / f"SHA256SUMS-{version + '-' if version else ''}{system.lower()}.txt"
     with sums.open("w", encoding="utf-8", newline="\n") as file:
         file.write(f"{digest}  {archive.name}\n")
     print(f"Paquet créé : {archive}")

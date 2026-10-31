@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import shutil
 from pathlib import Path
 
 from PIL import Image, ImageDraw
@@ -89,11 +90,16 @@ def main() -> None:
         sizes=[(16, 16), (24, 24), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)],
     )
     iconset = output / "github-desk.iconset"
+    if iconset.exists():
+        shutil.rmtree(iconset)
     iconset.mkdir(exist_ok=True)
-    for size in (16, 32, 64, 128, 256, 512):
-        resized = icon.resize((size, size), Image.Resampling.LANCZOS)
-        resized.save(iconset / f"icon_{size}x{size}.png")
-        resized.save(iconset / f"icon_{size}x{size}@2x.png")
+    for size in (16, 32, 128, 256, 512):
+        icon.resize((size, size), Image.Resampling.LANCZOS).save(
+            iconset / f"icon_{size}x{size}.png"
+        )
+        icon.resize((size * 2, size * 2), Image.Resampling.LANCZOS).save(
+            iconset / f"icon_{size}x{size}@2x.png"
+        )
 
 
 if __name__ == "__main__":

@@ -22,9 +22,10 @@ apparaître. N'ajoute pas l'application aux exclusions antivirus pour contourner
 une alerte ; vérifie le code source et les sommes de contrôle, et signale les
 faux positifs à l'éditeur de sécurité.
 
-Sous Windows, compare la valeur du fichier `SHA256SUMS-windows.txt` au résultat
-de `Get-FileHash .\\github-desk-windows-x64.zip -Algorithm SHA256`. Sous macOS ou
-Linux, utilise `shasum -a 256 <archive>`.
+Sous Windows, compare la valeur du fichier `SHA256SUMS-v1.0.123-windows.txt`
+(remplace la version par celle de la release) au résultat de
+`Get-FileHash .\\github-desk-windows-x64-v1.0.123.zip -Algorithm SHA256`.
+Sous macOS ou Linux, utilise `shasum -a 256 <archive>`.
 
 ## Compatibilité et prérequis
 
@@ -66,9 +67,12 @@ il ne produit pas un exécutable macOS depuis Windows, ni l'inverse.
 
 Pour publier le site, sélectionne **Settings → Pages → Source: GitHub Actions**
 dans les réglages du dépôt. Les changements ultérieurs dans `docs/` déclenchent
-le déploiement automatiquement. Pour créer les paquets, pousse un tag de version
-comme `v1.0.0` ; GitHub Actions construit les trois plateformes et publie les
-archives et leurs sommes SHA-256 dans Releases.
+le déploiement automatiquement. Chaque push sur `main` déclenche la construction
+pour Windows, macOS et Linux, puis publie une release `v1.0.N` où `N` est le
+numéro du workflow GitHub Actions. Les noms des archives et fichiers SHA-256
+contiennent cette version. Pour choisir toi-même un numéro, pousse un tag
+semver, par exemple `v2.0.0` ; le workflow utilise ce tag pour nommer la release.
+Le workflow peut aussi être lancé manuellement depuis l'onglet Actions.
 
 ## Cache, confidentialité et fonctions
 
