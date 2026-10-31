@@ -13,6 +13,7 @@
   <title>Installation — GitHub Desk</title>
   <link rel="icon" href="assets/github-desk.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <script src="installation.js" defer></script>
 </head>
 <body>
   <header class="header">
@@ -62,7 +63,7 @@
         <li>Ouvrez le dossier extrait. Gardez <code>GitHubDesk.exe</code> et le dossier <code>_internal</code> ensemble, puis double-cliquez sur <code>GitHubDesk.exe</code>.</li>
         <li>Si Windows signale que WebView2 manque, installez le <a href="https://developer.microsoft.com/microsoft-edge/webview2/">runtime WebView2 officiel</a>, puis relancez l’application.</li>
       </ol>
-      <p class="callout"><strong>Prérequis de connexion :</strong> GitHub Desk utilise l’outil officiel GitHub CLI (<code>gh</code>) pour se connecter. Si nécessaire, installez-le depuis sa <a href="https://cli.github.com/">page officielle</a>. La première connexion du compte reste à effectuer avec <code>gh auth login</code> dans PowerShell ; vous n’aurez pas à utiliser le terminal pour vos actions quotidiennes dans l’application. Git est facultatif, mais requis pour cloner et archiver des dépôts.</p>
+      <p class="callout"><strong>Prérequis :</strong> le parcours graphique télécharge l’application, mais ne peut pas installer les outils système en arrière-plan. Pour installer automatiquement GitHub CLI, Git et WebView2, utilisez le <a href="#windows-auto">script Windows guidé</a> plus bas. La connexion GitHub reste une étape interactive effectuée une seule fois dans le navigateur.</p>
     </section>
 
     <section class="section install-section visual-install" id="macos">
@@ -74,122 +75,246 @@
         <li>Faites glisser <em>GitHub Desk.app</em> dans le dossier <em>Applications</em>, puis ouvrez l’application.</li>
         <li>Si macOS affiche un avertissement, ne désactivez pas ses protections. Les versions actuelles ne sont pas signées/notariées ; n’ouvrez pas une application bloquée par Gatekeeper.</li>
       </ol>
-      <p class="callout"><strong>Prérequis de connexion :</strong> GitHub CLI doit être installé avant la connexion du compte. Consultez la <a href="https://cli.github.com/">page officielle de GitHub CLI</a> pour choisir la méthode adaptée à votre Mac. La première authentification nécessite <code>gh auth login</code> dans Terminal. Git est facultatif, mais nécessaire pour cloner ou archiver des dépôts.</p>
+      <p class="callout"><strong>Prérequis :</strong> le script terminal installe GitHub CLI et Git avec Homebrew. Homebrew doit être installé une première fois depuis le <a href="https://brew.sh/">site officiel</a> ; son installation demande confirmation et parfois le mot de passe administrateur. La connexion GitHub ouvre le navigateur une seule fois.</p>
     </section>
 
     <section class="section install-section visual-install" id="linux">
       <div class="eyebrow">Linux · x86_64 · GTK 3 et WebKitGTK 4.1</div>
       <h2>Linux, avec le gestionnaire de logiciels.</h2>
-      <p class="muted">Le build est produit sur Ubuntu 24.04. Utilisez une distribution x86_64 récente avec glibc 2.38 ou plus. Installez les bibliothèques nécessaires dans le gestionnaire de logiciels de votre distribution, puis téléchargez et extrayez l’archive avec votre navigateur et le gestionnaire de fichiers.</p>
+      <p class="muted">Le build est produit sur Ubuntu 24.04. Utilisez une distribution x86_64 récente avec glibc 2.38 ou plus. Le parcours terminal peut installer les dépendances système avec le gestionnaire de paquets de votre distribution ; il demandera votre mot de passe administrateur avant toute installation.</p>
 
       <details class="distro">
         <summary>Paquets requis pour Debian 13+ et Ubuntu 24.04+</summary>
         <p>Dans un terminal :</p>
         <pre><code>sudo apt update
-sudo apt install gh git libgtk-3-0 libwebkit2gtk-4.1-0 python3-gi gir1.2-gtk-3.0 gir1.2-webkit2-4.1</code></pre>
+sudo apt install -y gh git libgtk-3-0 libwebkit2gtk-4.1-0 python3-gi gir1.2-gtk-3.0 gir1.2-webkit2-4.1</code></pre>
+        <p><code>apt update</code> actualise la liste des paquets disponibles. <code>apt install</code> installe GitHub CLI, Git et les bibliothèques GTK/WebKit nécessaires à la fenêtre de l’application ; <code>-y</code> confirme les questions du gestionnaire après votre autorisation avec <code>sudo</code>.</p>
       </details>
 
       <details class="distro">
         <summary>Paquets requis pour Fedora 40+</summary>
         <p>Dans un terminal :</p>
-        <pre><code>sudo dnf install gh git gtk3 webkit2gtk4.1 python3-gobject</code></pre>
+        <pre><code>sudo dnf install -y gh git gtk3 webkit2gtk4.1 python3-gobject</code></pre>
+        <p><code>dnf install</code> installe GitHub CLI, Git et les bibliothèques GTK/WebKit requises. <code>-y</code> confirme les questions du gestionnaire après votre autorisation avec <code>sudo</code>.</p>
       </details>
 
       <details class="distro">
         <summary>Paquets requis pour Arch Linux et dérivées</summary>
         <p>Dans un terminal :</p>
-        <pre><code>sudo pacman -Syu github-cli git gtk3 webkit2gtk-4.1 python-gobject</code></pre>
+        <pre><code>sudo pacman -S --needed github-cli git gtk3 webkit2gtk-4.1 python-gobject</code></pre>
+        <p><code>pacman -S</code> installe GitHub CLI, Git et les bibliothèques GTK/WebKit requises. <code>--needed</code> évite de réinstaller les paquets déjà présents ; <code>sudo</code> demande l’autorisation administrateur.</p>
       </details>
 
       <details class="distro">
         <summary>Paquets requis pour openSUSE Leap 16+ et Tumbleweed</summary>
         <p>Dans un terminal :</p>
         <pre><code>sudo zypper refresh
-sudo zypper install gh git gtk3 libwebkit2gtk-4_1-0 python3-gobject</code></pre>
+sudo zypper install --non-interactive gh git gtk3 libwebkit2gtk-4_1-0 python3-gobject</code></pre>
+        <p><code>zypper refresh</code> actualise la liste des paquets ; <code>zypper install</code> installe GitHub CLI, Git et GTK/WebKit. Votre mot de passe administrateur reste requis pour <code>sudo</code>.</p>
       </details>
 
-      <ol class="steps">
-        <li>Téléchargez <code>github-desk-linux-x64-…tar.gz</code> depuis <a href="https://github.com/BEGY02300/GitHub-Desk/releases/latest">la dernière version</a>.</li>
-        <li>Dans le gestionnaire de fichiers, faites un clic droit sur l’archive et choisissez <em>Extraire ici</em>.</li>
-        <li>Ouvrez le dossier <em>GitHubDesk</em> et lancez <em>GitHubDesk</em>. Si votre environnement demande une confirmation, autorisez l’exécution du fichier téléchargé après avoir vérifié sa provenance.</li>
-      </ol>
-      <p class="callout"><strong>Prérequis de connexion :</strong> GitHub CLI (<code>gh</code>) doit être installé. La première authentification du compte nécessite <code>gh auth login</code> dans un terminal. Git est facultatif, mais nécessaire pour cloner et archiver des dépôts.</p>
+      <p class="callout"><strong>Automatique :</strong> le <a href="#linux-auto">script Linux</a> ci-dessous détecte Debian/Ubuntu, Fedora, Arch ou openSUSE, installe les dépendances, télécharge la dernière version, vérifie son SHA-256 et la lance.</p>
     </section>
 
     <section class="section install-section terminal-install" id="terminal">
-      <div class="eyebrow">Option 2 · tout faire au terminal</div>
-      <h2>Récupérer la dernière version automatiquement.</h2>
-      <p>Les commandes utilisent GitHub CLI et vérifient la somme SHA-256 avant d’extraire ou de lancer l’application. Elles ne désactivent aucune protection du système. Choisissez votre système :</p>
+      <div class="eyebrow">Option 2 · installation assistée au terminal</div>
+      <h2>Installer automatiquement les prérequis.</h2>
+      <p>Chaque script installe les outils requis via le gestionnaire officiel du système, se connecte à GitHub si nécessaire, télécharge la dernière version, vérifie son SHA-256, puis lance GitHub Desk. Les explications sont dans les commentaires du script. La première connexion peut ouvrir le navigateur ; l’installation des paquets système demande votre autorisation. Aucun antivirus ni contrôle de sécurité n’est désactivé.</p>
 
-      <details class="distro terminal-platform">
+      <details class="distro terminal-platform" id="windows-auto" open>
         <summary>Windows 10/11 · PowerShell</summary>
-        <p>Ouvrez PowerShell. Installez GitHub CLI si besoin, puis connectez votre compte :</p>
-        <pre><code>winget install --id GitHub.cli --exact
-gh auth login</code></pre>
-        <p>Téléchargez le dernier build, vérifiez son SHA-256, extrayez-le et lancez-le :</p>
-        <pre><code>
-$folder = Join-Path $HOME ("Downloads\GitHubDesk-" + [guid]::NewGuid().ToString("N"))
+        <p>Ouvrez PowerShell et collez tout le script. <code>winget</code> installe les composants manquants ; Windows peut demander votre confirmation.</p>
+        <pre><code>$ErrorActionPreference = "Stop"
+
+# Vérifie que le gestionnaire de paquets Windows est disponible.
+if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+  throw "Installez « App Installer » depuis le Microsoft Store, puis relancez ce script."
+}
+
+# Installe GitHub CLI, utilisé pour télécharger et connecter le compte.
+if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
+  winget install --id GitHub.cli --exact --accept-package-agreements --accept-source-agreements
+  if ($LASTEXITCODE -ne 0) { throw "L'installation de GitHub CLI a échoué." }
+}
+
+# Installe Git, nécessaire aux fonctions de clonage et d'archivage.
+if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
+  winget install --id Git.Git --exact --accept-package-agreements --accept-source-agreements
+  if ($LASTEXITCODE -ne 0) { throw "L'installation de Git a échoué." }
+}
+
+# Installe le moteur de fenêtre WebView2 s'il n'est pas déjà présent.
+$webViewRuntime = Get-ChildItem "HKLM:\SOFTWARE\Microsoft\EdgeUpdate\Clients", "HKLM:\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\Clients" -ErrorAction SilentlyContinue |
+  Get-ItemProperty -ErrorAction SilentlyContinue |
+  Where-Object { $_.name -eq "Microsoft Edge WebView2 Runtime" } |
+  Select-Object -First 1
+if (-not $webViewRuntime) {
+  winget install --id Microsoft.EdgeWebView2Runtime --exact --accept-package-agreements --accept-source-agreements
+  if ($LASTEXITCODE -ne 0) { throw "L'installation de WebView2 a échoué." }
+}
+
+# Recharge PATH pour rendre visibles les outils qui viennent d'être installés.
+$env:Path = [Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [Environment]::GetEnvironmentVariable("Path", "User")
+
+# Demande une connexion uniquement si GitHub CLI n'est pas déjà connecté.
+gh auth status *> $null
+if ($LASTEXITCODE -ne 0) { gh auth login }
+if ($LASTEXITCODE -ne 0) { throw "La connexion GitHub a échoué." }
+
+# Télécharge la dernière archive Windows et son manifeste de sommes.
+$downloads = Join-Path $HOME "Downloads"
+New-Item -ItemType Directory -Force -Path $downloads | Out-Null
+$folder = Join-Path $downloads ("GitHubDesk-" + [guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory -Force -Path $folder | Out-Null
 gh release download --repo BEGY02300/GitHub-Desk --pattern "github-desk-windows-x64-*.zip" --pattern "SHA256SUMS-*-windows.txt" --dir $folder
-if ($LASTEXITCODE -ne 0) { throw "Échec du téléchargement GitHub." }
+if ($LASTEXITCODE -ne 0) { throw "Le téléchargement GitHub a échoué." }
+
+# Compare le SHA-256 de l'archive à celui publié dans le manifeste.
 $archive = Get-ChildItem $folder -Filter "github-desk-windows-x64-*.zip" | Select-Object -First 1
 $sums = Get-ChildItem $folder -Filter "SHA256SUMS-*-windows.txt" | Select-Object -First 1
-if (-not $archive -or -not $sums) { throw "Archive ou somme SHA-256 introuvable." }
+if (-not $archive -or -not $sums) { throw "Archive ou manifeste SHA-256 introuvable." }
 $line = Select-String -Path $sums.FullName -SimpleMatch $archive.Name | Select-Object -First 1
 if (-not $line) { throw "Aucune somme publiée pour cette archive." }
 $expected = $line.Line.Substring(0, 64).ToUpperInvariant()
 $actual = (Get-FileHash $archive.FullName -Algorithm SHA256).Hash
-if ($actual -ne $expected) { throw "La vérification SHA-256 a échoué. N'ouvrez pas ce fichier." }
+if ($actual -ne $expected) { throw "SHA-256 incorrect. N'ouvrez pas cette archive." }
+
+# Extrait l'application dans Téléchargements et la démarre.
 Expand-Archive -LiteralPath $archive.FullName -DestinationPath $folder -Force
 Start-Process (Join-Path $folder "GitHubDesk\GitHubDesk.exe")</code></pre>
-        <p>Installez Git séparément avec <code>winget install --id Git.Git --exact</code> si vous voulez cloner ou archiver des dépôts.</p>
+        <ul class="command-explanation">
+          <li><code>winget</code> installe uniquement les outils absents : GitHub CLI, Git et le runtime WebView2.</li>
+          <li><code>gh auth login</code> ouvre la connexion GitHub dans le navigateur seulement si nécessaire.</li>
+          <li><code>gh release download</code> récupère l'archive et son manifeste ; <code>Get-FileHash</code> vérifie leur empreinte avant extraction.</li>
+          <li><code>Expand-Archive</code> extrait les fichiers et <code>Start-Process</code> ouvre l’application. En cas d'erreur SHA-256, le script s'arrête.</li>
+        </ul>
       </details>
 
-      <details class="distro terminal-platform">
+      <details class="distro terminal-platform" id="macos-auto">
         <summary>macOS · Terminal et Homebrew</summary>
-        <p>Installez <a href="https://brew.sh/">Homebrew</a> si nécessaire, puis GitHub CLI et connectez votre compte :</p>
-        <pre><code>brew install gh
-gh auth login</code></pre>
-        <p>Sur Apple Silicon, téléchargez, vérifiez et ouvrez l’application :</p>
-        <pre><code>mkdir -p "$HOME/Downloads"
+        <p>Installez d’abord Homebrew depuis son <a href="https://brew.sh/">site officiel</a> si votre Mac ne l’a pas. Cette étape demande une confirmation de votre part. Ensuite, collez tout le script dans Terminal :</p>
+        <pre><code>#!/bin/bash
+set -eu
+
+# Homebrew fournit les outils système sans télécharger d'installateur tiers.
+if ! command -v brew >/dev/null 2>&amp;1; then
+  echo "Homebrew est requis. Installez-le depuis https://brew.sh/, puis relancez ce script."
+  exit 1
+fi
+
+# Installe GitHub CLI et Git uniquement s'ils sont absents.
+brew list --versions gh >/dev/null 2>&amp;1 || brew install gh
+brew list --versions git >/dev/null 2>&amp;1 || brew install git
+
+# Connecte le compte uniquement si aucune session GitHub n'est active.
+gh auth status >/dev/null 2>&amp;1 || gh auth login
+
+# Choisit l'archive correspondant au processeur du Mac.
 case "$(uname -m)" in
   arm64|aarch64) arch="arm64" ;;
   x86_64) arch="x86_64" ;;
   *) echo "Architecture Mac non prise en charge."; exit 1 ;;
 esac
+
+# Crée un dossier temporaire dédié au téléchargement.
+mkdir -p "$HOME/Downloads"
 folder="$(mktemp -d "$HOME/Downloads/GitHubDesk.XXXXXX")"
 cd "$folder"
+
+# Télécharge la dernière archive macOS et le manifeste SHA-256.
 gh release download --repo BEGY02300/GitHub-Desk --pattern "github-desk-macos-${arch}-*.zip" --pattern "SHA256SUMS-*-darwin.txt"
 archive="$(find . -maxdepth 1 -name "github-desk-macos-${arch}-*.zip" -print -quit)"
 sums="$(find . -maxdepth 1 -name 'SHA256SUMS-*-darwin.txt' -print -quit)"
-expected="$(grep -F "  ${archive#./}" "$sums" | awk 'NR == 1 {print $1}')"
+test -n "$archive"
+test -n "$sums"
+
+# Vérifie l'archive avant de l'extraire ou de la lancer.
+expected="$(awk -v name="$(basename "$archive")" '$2 == name {print $1; exit}' "$sums")"
 actual="$(shasum -a 256 "$archive" | awk '{print $1}')"
-test -n "$expected" &amp;&amp; test "$actual" = "$expected" || { echo "Échec SHA-256 : ne lancez pas cette archive."; exit 1; }
-unzip -o "$archive"
-open "GitHub Desk.app"</code></pre>
-        <p>Sur un Mac Intel, remplacez <code>arm64</code> par <code>x86_64</code> dans le filtre de téléchargement, si cette architecture est proposée dans la release.</p>
+if [ -z "$expected" ] || [ "$actual" != "$expected" ]; then
+  echo "Échec SHA-256 : n'ouvrez pas cette archive."
+  exit 1
+fi
+
+# Extrait l'application dans Téléchargements puis l'ouvre.
+unzip -o "$archive" -d "$folder"
+open "$folder/GitHub Desk.app"</code></pre>
+        <ul class="command-explanation">
+          <li><code>brew install</code> ajoute GitHub CLI et Git ; Homebrew demande l’autorisation requise par macOS.</li>
+          <li><code>gh auth login</code> ouvre le navigateur uniquement lors de la première connexion.</li>
+          <li><code>uname -m</code> choisit le paquet Apple Silicon ou Intel ; <code>gh release download</code> télécharge la version correspondante.</li>
+          <li><code>shasum -a 256</code> vérifie l’archive avant <code>unzip</code> et <code>open</code>. Le script n’essaie pas de contourner Gatekeeper.</li>
+        </ul>
       </details>
 
-      <details class="distro terminal-platform">
-        <summary>Linux · Ubuntu/Debian, Fedora, Arch et openSUSE</summary>
-        <p>Installez GitHub CLI et les bibliothèques système avec les commandes de votre distribution dans le guide graphique ci-dessus, puis connectez votre compte :</p>
-        <pre><code>gh auth login</code></pre>
-        <p>Ces commandes téléchargent le dernier paquet, comparent son SHA-256 au manifeste publié, puis l’extraient :</p>
-        <pre><code>mkdir -p "$HOME/Downloads"
+      <details class="distro terminal-platform" id="linux-auto">
+        <summary>Linux · Debian/Ubuntu, Fedora, Arch ou openSUSE</summary>
+        <p>Collez le script dans un terminal. Il détecte la distribution, installe les paquets avec son gestionnaire officiel et vous demande le mot de passe administrateur pour <code>sudo</code>.</p>
+        <pre><code>#!/bin/bash
+set -eu
+
+# Détecte l'identifiant de la distribution depuis le fichier système standard.
+. /etc/os-release
+
+# Installe les bibliothèques de fenêtre, GitHub CLI et Git avec le gestionnaire adapté.
+case "$ID $ID_LIKE" in
+  *debian*|*ubuntu*)
+    sudo apt-get update
+    sudo apt-get install -y gh git libgtk-3-0 libwebkit2gtk-4.1-0 python3-gi gir1.2-gtk-3.0 gir1.2-webkit2-4.1
+    ;;
+  *fedora*)
+    sudo dnf install -y gh git gtk3 webkit2gtk4.1 python3-gobject
+    ;;
+  *arch*)
+    sudo pacman -S --needed github-cli git gtk3 webkit2gtk-4.1 python-gobject
+    ;;
+  *suse*)
+    sudo zypper --non-interactive refresh
+    sudo zypper --non-interactive install gh git gtk3 libwebkit2gtk-4_1-0 python3-gobject
+    ;;
+  *)
+    echo "Distribution non prise en charge automatiquement : $ID"
+    echo "Consultez les prérequis Linux du guide avant de continuer."
+    exit 1
+    ;;
+esac
+
+# Ouvre la connexion GitHub uniquement si aucune session n'est active.
+gh auth status >/dev/null 2>&amp;1 || gh auth login
+
+# Crée un dossier temporaire pour les fichiers de la dernière release.
+mkdir -p "$HOME/Downloads"
 folder="$(mktemp -d "$HOME/Downloads/GitHubDesk.XXXXXX")"
 cd "$folder"
+
+# Télécharge l'application Linux et le manifeste de sommes SHA-256.
 gh release download --repo BEGY02300/GitHub-Desk --pattern "github-desk-linux-x64-*.tar.gz" --pattern "SHA256SUMS-*-linux.txt"
 archive="$(find . -maxdepth 1 -name 'github-desk-linux-x64-*.tar.gz' -print -quit)"
 sums="$(find . -maxdepth 1 -name 'SHA256SUMS-*-linux.txt' -print -quit)"
-expected="$(grep -F "  ${archive#./}" "$sums" | awk 'NR == 1 {print $1}')"
+test -n "$archive"
+test -n "$sums"
+
+# Vérifie l'archive avant extraction et arrêt immédiat si elle diffère.
+expected="$(awk -v name="$(basename "$archive")" '$2 == name {print $1; exit}' "$sums")"
 actual="$(sha256sum "$archive" | awk '{print $1}')"
-test -n "$expected" &amp;&amp; test "$actual" = "$expected" || { echo "Échec SHA-256 : ne lancez pas cette archive."; exit 1; }
+if [ -z "$expected" ] || [ "$actual" != "$expected" ]; then
+  echo "Échec SHA-256 : ne lancez pas cette archive."
+  exit 1
+fi
+
+# Extrait le paquet et démarre GitHub Desk.
 tar -xzf "$archive"
 cd GitHubDesk
 ./GitHubDesk</code></pre>
+        <ul class="command-explanation">
+          <li><code>/etc/os-release</code> identifie la distribution ; <code>apt</code>, <code>dnf</code>, <code>pacman</code> ou <code>zypper</code> installe automatiquement les dépendances requises.</li>
+          <li><code>sudo</code> demande le mot de passe administrateur ; <code>-y</code> ou <code>--non-interactive</code> répond aux confirmations du gestionnaire après cette autorisation.</li>
+          <li><code>gh auth login</code> ouvre la connexion GitHub dans le navigateur seulement si nécessaire.</li>
+          <li><code>sha256sum</code> vérifie le téléchargement ; <code>tar</code> extrait ensuite l’application, qui est lancée depuis son dossier.</li>
+        </ul>
       </details>
 
-      <p class="callout warning-callout"><strong>Vérification importante :</strong> si une commande signale une erreur de somme, arrêtez-vous et ne lancez pas l’application. Les versions macOS ne sont pas encore signées/notarisées ; la vérification SHA-256 contrôle l’intégrité du fichier, mais ne remplace pas une signature éditeur.</p>
+      <p class="callout warning-callout"><strong>À retenir :</strong> ne lancez jamais l’application si une vérification SHA-256 échoue. Homebrew doit être installé séparément sur macOS ; le premier accès à GitHub et les autorisations administrateur nécessitent votre accord.</p>
     </section>
 
     <section class="section install-section" id="connexion">

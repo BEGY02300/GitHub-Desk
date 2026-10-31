@@ -35,6 +35,7 @@ jobs:
           test -s docs/installation.html
           test -s docs/legal.html
           test -s docs/site.js
+          test -s docs/installation.js
           test -s docs/style.css
           test -s docs/robots.txt
           test -s docs/sitemap.xml

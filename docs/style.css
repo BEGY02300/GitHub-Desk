@@ -185,8 +185,16 @@ h2 { margin: 10px 0; font-size: clamp(30px, 4vw, 43px); line-height: 1.1; letter
 .steps li { min-width: 0; overflow-wrap: anywhere; padding-left: 5px; }
 .steps li::marker { color: var(--blue); font-weight: 750; }
 .install-section code { overflow-wrap: anywhere; color: #37445d; font: .92em Consolas, "SFMono-Regular", monospace; }
-.install-section pre { max-width: 100%; overflow-x: auto; margin: 11px 0 16px; padding: 17px 19px; border: 1px solid #e2e6ed; border-radius: 14px; background: #f0f2f6; color: #25324a; font: 13px/1.7 Consolas, "SFMono-Regular", monospace; }
+.install-section pre { max-width: 100%; overflow-x: auto; margin: 11px 0 16px; padding: 18px 20px; border: 1px solid #e2e6ed; border-radius: 14px; background: #f0f2f6; color: #25324a; font: 15px/1.75 Consolas, "SFMono-Regular", monospace; }
 .install-section pre code { color: inherit; }
+.command-block { position: relative; margin: 14px 0 18px; }
+.command-block pre { margin: 0; padding-top: 54px; }
+.copy-command { position: absolute; z-index: 1; top: 10px; right: 10px; min-height: 34px; padding: 6px 11px; border: 1px solid #cbd4e4; border-radius: 8px; background: #fff; color: #263a5c; font: 650 13px/1.3 system-ui, sans-serif; cursor: pointer; }
+.copy-command:hover { border-color: #8ca7e8; background: #f8faff; }
+.copy-command:focus-visible { outline: 3px solid #88a6f4; outline-offset: 2px; }
+.copy-status { min-height: 1.5em; margin: 6px 2px 0; color: #52627a; font-size: 13px; }
+.command-explanation { margin: 10px 0 18px; padding-left: 22px; color: #59677d; font-size: 14px; line-height: 1.65; }
+.command-explanation li + li { margin-top: 5px; }
 .distro { margin: 16px 0; padding: 17px 20px 10px; border: 1px solid #e4e8ef; border-radius: 16px; background: #fff; box-shadow: 0 6px 20px #17203306; }
 .distro summary { color: #29364d; font-weight: 680; cursor: pointer; }
 .distro summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
@@ -238,7 +246,9 @@ h2 { margin: 10px 0; font-size: clamp(30px, 4vw, 43px); line-height: 1.1; letter
   .installation-choice { padding-top: 65px; padding-bottom: 65px; }
   .install-choice-card { min-height: 0; padding: 23px; }
   .install-mode-intro { padding-bottom: 25px; }
-  .install-section pre { font-size: 11px; }
+  .install-section pre { font-size: 14px; line-height: 1.7; padding-right: 14px; padding-left: 14px; }
+  .copy-command { font-size: 12px; }
+  .command-explanation { font-size: 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
