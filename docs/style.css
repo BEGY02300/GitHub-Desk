@@ -200,6 +200,11 @@ h2 { margin: 10px 0; font-size: clamp(30px, 4vw, 43px); line-height: 1.1; letter
 .distro summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
 .distro h3 { margin-top: 13px; }
 .distro pre { border-color: #e2e6ed; }
+.faq-list { display: grid; gap: 12px; max-width: 860px; }
+.faq-item { padding: 18px 21px; border: 1px solid #e4e8ef; border-radius: 15px; background: #fff; }
+.faq-item summary { color: #29364d; font-weight: 680; cursor: pointer; }
+.faq-item summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+.faq-item p { margin: 12px 0 0; color: var(--muted); }
 .callout { margin: 22px 0; padding: 17px 20px; border: 1px solid #dce6f8; border-radius: 14px; background: #f2f6ff; color: #45536b; }
 .warning-callout { border-color: #f0dfb8; background: #fff9eb; color: #6b5425; }
 .trust { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }

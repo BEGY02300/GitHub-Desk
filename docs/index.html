@@ -4,21 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f6f9">
-  <meta name="description" content="Gérez vos dépôts GitHub, branches, pull requests et issues dans une application de bureau en français pour Windows, macOS et Linux. Installation graphique ou terminal.">
+  <meta name="description" content="GitHub Desk est un client de bureau GitHub gratuit en français. Gérez dépôts, branches, pull requests et issues sur Windows, macOS et Linux.">
   <meta name="google-site-verification" content="gwhjIAzpphpX6UuKx2U8a9o2np2BDY2TkguBGmqQqOs" />
-  <meta property="og:title" content="GitHub Desk — GitHub, simplement">
-  <meta property="og:description" content="Une application de bureau GitHub en français. Choisissez une installation graphique ou par terminal. Windows, macOS et Linux.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="GitHub Desk">
+  <meta property="og:title" content="GitHub Desk — client de bureau GitHub en français">
+  <meta property="og:description" content="Gérez dépôts, branches, pull requests et issues GitHub avec une application de bureau pour Windows, macOS et Linux.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://begy02300.github.io/GitHub-Desk/">
   <meta property="og:image" content="https://begy02300.github.io/GitHub-Desk/assets/app-preview.svg">
   <meta property="og:image:alt" content="Aperçu de l’application de bureau GitHub Desk">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GitHub Desk — gérer GitHub simplement">
-  <meta name="twitter:description" content="Application de bureau en français pour GitHub, sur Windows, macOS et Linux. Installation graphique ou par terminal.">
+  <meta name="twitter:title" content="GitHub Desk — client de bureau GitHub en français">
+  <meta name="twitter:description" content="Gérez vos dépôts GitHub avec une application de bureau pour Windows, macOS et Linux.">
+  <meta name="twitter:image" content="https://begy02300.github.io/GitHub-Desk/assets/app-preview.svg">
   <link rel="canonical" href="https://begy02300.github.io/GitHub-Desk/">
   <link rel="alternate" type="application/atom+xml" title="Releases GitHub Desk" href="https://github.com/BEGY02300/GitHub-Desk/releases.atom">
   <meta name="color-scheme" content="light">
-  <title>GitHub Desk — GitHub, simplement</title>
+  <title>GitHub Desk — client de bureau GitHub en français</title>
   <link rel="icon" href="assets/github-desk.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
   <script src="site.js" defer></script>
@@ -44,6 +47,12 @@
           "description": "Application de bureau en français pour gérer des dépôts GitHub, branches, pull requests, issues et workflows.",
           "downloadUrl": "https://github.com/BEGY02300/GitHub-Desk/releases/latest",
           "softwareHelp": "https://begy02300.github.io/GitHub-Desk/installation.html",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "url": "https://github.com/BEGY02300/GitHub-Desk/releases/latest"
+          },
           "isAccessibleForFree": true
         }
       ]
@@ -73,8 +82,8 @@
     <section class="container hero">
       <div>
         <div class="eyebrow">Une interface. Vos dépôts.</div>
-        <h1>Votre espace GitHub.<br><span>Tout simplement.</span></h1>
-        <p class="hero-copy">Dépôts, branches et pull requests dans une application de bureau en français. Choisissez une installation visuelle ou au terminal, puis travaillez sans commandes au quotidien.</p>
+        <h1>Gérez vos dépôts GitHub.<br><span>Depuis votre bureau.</span></h1>
+        <p class="hero-copy">GitHub Desk est un client de bureau GitHub en français pour Windows, macOS et Linux. Consultez vos dépôts publics et privés, branches, pull requests, issues et workflows dans une interface graphique, sans terminal au quotidien.</p>
         <div class="actions">
           <a class="button primary" href="#installation">Choisir votre installation <span aria-hidden="true">→</span></a>
           <a class="button" href="#fonctionnalites">Découvrir les fonctions</a>
@@ -238,6 +247,38 @@
         </div>
         <div class="actions project-links">
           <a class="button primary" href="installation.html">Ouvrir le guide d’installation par système <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="questions">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Questions fréquentes</div>
+          <h2>À savoir avant d’installer GitHub Desk.</h2>
+          <p>Les réponses essentielles sur la compatibilité, la connexion et les données de l’application.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>À quoi sert GitHub Desk ?</summary>
+            <p>GitHub Desk est une application de bureau en français pour consulter et gérer des dépôts GitHub, branches, pull requests, issues et workflows. Les actions sensibles demandent une confirmation.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Quels systèmes et prérequis sont compatibles ?</summary>
+            <p>L’application propose des paquets pour Windows 10/11 x64, macOS (selon l’architecture publiée) et Linux x64. WebView2 est requis sous Windows ; GTK 3 et WebKitGTK 4.1 sous Linux. Le <a href="installation.html">guide d’installation par système</a> détaille les prérequis.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Comment connecter mon compte GitHub ?</summary>
+            <p>La première connexion passe par GitHub CLI et l’authentification officielle GitHub dans le navigateur. Les étapes sont décrites dans le <a href="installation.html#connexion">guide de première connexion</a> ; ensuite, les actions courantes se font dans l’application.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Où sont conservés mes identifiants et mes données ?</summary>
+            <p>Les identifiants sont gérés par GitHub CLI et ne sont pas enregistrés dans le cache de l’application. Le cache local conserve les données nécessaires à l’interface. Consultez les <a href="legal.html">informations de confidentialité</a> et le <a href="https://github.com/BEGY02300/GitHub-Desk">code source</a>.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Comment télécharger la dernière version ?</summary>
+            <p>Choisissez votre système sur la page <a href="#nouveautes">des versions et téléchargements</a> ou suivez le <a href="installation.html">guide d’installation graphique ou terminal</a>. Chaque release fournit des sommes SHA-256 à vérifier.</p>
+          </details>
         </div>
       </div>
     </section>
