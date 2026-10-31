@@ -1,0 +1,26 @@
+changelog:
+  categories:
+    - title: "✨ Nouveautés"
+      labels:
+        - "feature"
+        - "enhancement"
+    - title: "🐛 Corrections"
+      labels:
+        - "bug"
+        - "fix"
+    - title: "📚 Documentation"
+      labels:
+        - "documentation"
+        - "docs"
+    - title: "🧰 Maintenance"
+      labels:
+        - "maintenance"
+        - "dependencies"
+    - title: "Autres changements"
+      labels:
+        - "*"
+  exclude:
+    labels:
+      - "skip-changelog"
+    authors:
+      - "github-actions[bot]"

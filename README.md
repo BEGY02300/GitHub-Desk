@@ -1,97 +1,166 @@
+<div align="center">
+
+<img src="assets/github-desk.svg" width="104" alt="Icône GitHub Desk">
+
 # GitHub Desk
 
-GitHub Desk est une application de bureau en français pour gérer ses dépôts,
-branches, pull requests, issues, workflows et plans d'archivage sans utiliser
-le site GitHub au quotidien.
+### GitHub, simplement.
 
-## Télécharger l'application
+Une application de bureau en français pour gérer tes dépôts, branches,
+pull requests, issues et workflows — sans le terminal au quotidien.
 
-Les versions Windows, macOS et Linux sont publiées dans
-[GitHub Releases](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases).
-Télécharge l'archive correspondant à ton système, décompresse-la, puis ouvre
-l'application qu'elle contient. Le site de présentation se trouve dans
-[docs/](./docs/) et sera disponible sur
-[GitHub Pages](https://begy02300.github.io/Gestion-GitHub-graphique/) quand
-Pages sera activé pour ce dépôt.
+[Télécharger la dernière version](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest)
+· [Site du projet](https://begy02300.github.io/Gestion-GitHub-graphique/)
+· [Feuille de route](docs/roadmap.md)
+· [Journal des changements](CHANGELOG.md)
 
-Chaque publication propose un fichier de sommes SHA-256 pour vérifier que le
-téléchargement n'a pas été altéré. Les versions ne sont pas signées
-actuellement : les sommes de contrôle ne remplacent pas une signature éditeur,
-et les avertissements SmartScreen ou d'autres antivirus peuvent encore
-apparaître. N'ajoute pas l'application aux exclusions antivirus pour contourner
-une alerte ; vérifie le code source et les sommes de contrôle, et signale les
-faux positifs à l'éditeur de sécurité.
+![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4?logo=windows)
+![macOS](https://img.shields.io/badge/macOS-build%20automatique-111111?logo=apple)
+![Linux](https://img.shields.io/badge/Linux-build%20automatique-FCC624?logo=linux&logoColor=111)
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
 
-Sous Windows, compare la valeur du fichier `SHA256SUMS-v1.0.123-windows.txt`
-(remplace la version par celle de la release) au résultat de
-`Get-FileHash .\\github-desk-windows-x64-v1.0.123.zip -Algorithm SHA256`.
-Sous macOS ou Linux, utilise `shasum -a 256 <archive>`.
+</div>
 
-## Compatibilité et prérequis
+---
 
-- **Windows 10 et 11, x64** : Microsoft Edge WebView2 et GitHub CLI (`gh`).
-- **macOS** : version publiée construite pour l'architecture indiquée dans son
-  nom ; GitHub CLI (`gh`) est requis.
-- **Linux x64** : GTK 3, WebKit2GTK 4.1 et GitHub CLI (`gh`) sont requis.
-- Pour les fonctions d'archivage qui clonent des dépôts, Git est aussi requis.
-- Une connexion GitHub CLI autorisée est nécessaire. Connecte le compte une
-  fois avec `gh auth login` dans un terminal ; les commandes exécutées ensuite
-  par l'application ne créent pas de fenêtre de terminal sur Windows.
+## En un coup d'œil
 
-Les versions publiées sont créées par GitHub Actions depuis le code de ce
-dépôt. Le projet ne télécharge pas de programme tiers en douce et ne désactive
-pas les protections de sécurité.
+![Aperçu illustratif de GitHub Desk](docs/assets/app-preview.svg)
 
-## Développement
+> Les nombres et noms visibles dans cet aperçu sont fictifs : ils illustrent
+> l'interface et ne représentent aucun compte GitHub réel.
 
-Python 3.11 ou plus récent est recommandé.
+GitHub Desk réunit dans une seule interface les opérations quotidiennes sur
+GitHub. Il charge d'abord une copie locale, puis te laisse choisir quand
+vérifier les changements en ligne.
 
-```text
+| Fonction | Ce que tu peux faire |
+|---|---|
+| Dépôts | Chercher, filtrer, créer depuis un modèle, modifier les réglages et préparer une archive |
+| Branches et pull requests | Consulter, créer et gérer les branches ; examiner et fusionner les PR |
+| Issues et Actions | Gérer les issues et consulter, relancer ou annuler les workflows |
+| Données locales | Retrouver les dernières données consultées sans resynchroniser tout le compte |
+| MCP | Utiliser le serveur de lecture seule intégré ou connecter volontairement un serveur externe |
+| Actions sensibles | Confirmer explicitement les suppressions et opérations irréversibles |
+
+## Télécharger
+
+Les versions publiées sont construites automatiquement pour Windows, macOS et
+Linux par GitHub Actions. Ouvre la [dernière release](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest)
+et choisis l'archive de ton système. Chaque paquet est accompagné d'une somme
+SHA-256.
+
+| Système | Paquet | Prérequis |
+|---|---|---|
+| Windows 10/11, x64 | `github-desk-windows-x64-vX.Y.Z.zip` | WebView2 et GitHub CLI (`gh`) |
+| macOS | `github-desk-macos-ARCH-vX.Y.Z.zip` | GitHub CLI (`gh`), architecture indiquée dans le nom |
+| Linux, x64 | `github-desk-linux-x64-vX.Y.Z.tar.gz` | GTK 3, WebKit2GTK 4.1 et GitHub CLI (`gh`) |
+
+Git est aussi requis pour archiver des dépôts. Connecte ton compte une première
+fois avec `gh auth login`. Cette étape est faite volontairement par toi ; les
+commandes lancées ensuite par l'application restent cachées sur Windows.
+
+### Vérifier le téléchargement
+
+Sous Windows, compare le SHA-256 indiqué dans le fichier
+`SHA256SUMS-vX.Y.Z-windows.txt` au résultat de :
+
+```powershell
+Get-FileHash .\github-desk-windows-x64-vX.Y.Z.zip -Algorithm SHA256
+```
+
+Sous macOS ou Linux :
+
+```sh
+shasum -a 256 github-desk-<systeme>-vX.Y.Z.zip
+```
+
+Les exécutables ne sont pas encore signés. Un avertissement SmartScreen ou
+antivirus reste donc possible. Une somme SHA-256 vérifie l'intégrité du
+téléchargement, mais ne remplace pas une signature éditeur. Ne désactive pas
+ton antivirus et n'ajoute pas le programme aux exclusions pour contourner une
+alerte ; vérifie le code source et signale les faux positifs au fournisseur
+de sécurité.
+
+## Comment la publication fonctionne
+
+```mermaid
+flowchart LR
+    A["Push sur main<br/>ou tag vX.Y.Z"] --> B["GitHub Actions"]
+    B --> C["Tests Python"]
+    C --> D["Build Windows"]
+    C --> E["Build macOS"]
+    C --> F["Build Linux"]
+    D --> G["Archives versionnées"]
+    E --> G
+    F --> G
+    G --> H["SHA-256"]
+    G --> I["GitHub Release<br/>notes générées"]
+    J["Changement dans docs/"] --> K["Workflow GitHub Pages"]
+    K --> L["Site mis à jour"]
+```
+
+Chaque push sur `main` produit une version automatique `v1.0.N`. Pour choisir
+toi-même une version, pousse un tag comme `v2.0.0`. Les notes de release sont
+générées à partir des changements GitHub et triées par catégorie ; le détail
+des fonctionnalités livrées est aussi conservé dans le
+[changelog](CHANGELOG.md).
+
+Le site est publié automatiquement quand `docs/` change. Pour la première
+publication, un administrateur du dépôt doit activer Pages une fois dans
+**Settings → Pages**, avec **GitHub Actions** comme source. Après cette
+configuration, les publications sont automatiques. Cette étape initiale ne
+peut pas être réalisée par le `GITHUB_TOKEN` standard du workflow.
+
+## Feuille de route
+
+Le statut et les prochaines étapes sont visibles dans la
+[feuille de route](docs/roadmap.md). Les priorités à venir comprennent la
+signature des binaires, des essais de lancement sur chaque système et des
+guides d'installation illustrés.
+
+## Développer
+
+Python 3.11 ou plus récent est recommandé. Sur Linux, installe d'abord les
+bibliothèques système GTK 3 et WebKit2GTK 4.1.
+
+```sh
 python -m venv .venv
 python -m pip install -r requirements.txt
 python 1.py
 ```
 
-Les commandes de développement sont affichées dans le terminal utilisé pour
-lancer Python. Les versions installables, elles, sont construites sans console.
+Pour construire l'application sur le système où tu te trouves :
 
-Pour construire l'application sur le système correspondant :
-
-```text
+```sh
 python -m pip install -r requirements-build.txt
 python tools/package.py
 ```
 
-Le paquet est placé dans `dist/`. PyInstaller construit sur le système courant ;
-il ne produit pas un exécutable macOS depuis Windows, ni l'inverse.
+Les builds macOS, Windows et Linux doivent être réalisés sur leurs runners
+respectifs ; PyInstaller ne produit pas un binaire macOS depuis Windows.
+L'archive de développement est créée dans `dist/`.
 
-Pour publier le site, sélectionne **Settings → Pages → Source: GitHub Actions**
-dans les réglages du dépôt. Les changements ultérieurs dans `docs/` déclenchent
-le déploiement automatiquement. Chaque push sur `main` déclenche la construction
-pour Windows, macOS et Linux, puis publie une release `v1.0.N` où `N` est le
-numéro du workflow GitHub Actions. Les noms des archives et fichiers SHA-256
-contiennent cette version. Pour choisir toi-même un numéro, pousse un tag
-semver, par exemple `v2.0.0` ; le workflow utilise ce tag pour nommer la release.
-Le workflow peut aussi être lancé manuellement depuis l'onglet Actions.
+## Cache et confidentialité
 
-## Cache, confidentialité et fonctions
+Les identifiants sont gérés par GitHub CLI et ne sont pas enregistrés dans le
+cache de l'application. Le cache local conserve les dépôts, les pages consultées
+et l'avatar du compte pour éviter de tout recharger à chaque ouverture.
 
-GitHub Desk ouvre d'abord la dernière copie enregistrée localement et demande
-avant de vérifier les changements sur GitHub. Les jetons restent gérés par
-GitHub CLI ; l'application n'en enregistre pas dans son cache.
+- Windows : `%LOCALAPPDATA%\\GitHubDesk`
+- macOS : `~/Library/Application Support/GitHubDesk`
+- Linux : `$XDG_DATA_HOME/GitHubDesk`
 
-Le cache SQLite et l'image du profil sont stockés dans le dossier utilisateur
-de l'application (`%LOCALAPPDATA%\\GitHubDesk` sous Windows,
-`~/Library/Application Support/GitHubDesk` sous macOS ou
-`$XDG_DATA_HOME/GitHubDesk` sous Linux). Les liens de dépôts, issues et pull
-requests s'ouvrent dans l'application ; seul le bouton explicite « Ouvrir sur
-GitHub… » lance le navigateur.
+Les opérations de suppression demandent une confirmation. Les outils MCP du
+serveur intégré sont en lecture seule. Les serveurs MCP externes ne démarrent
+qu'après action explicite : connecte uniquement des programmes de confiance.
 
-Fonctions disponibles : dépôts privés et publics, création à partir de modèles,
-branches, pull requests, issues, GitHub Actions, statistiques, options de
-sécurité et d'accès, archivage, favoris locaux et client/serveur MCP. Les
-suppressions et opérations sensibles demandent une confirmation.
+## Documentation et liens
 
-Les outils MCP sont en lecture seule côté serveur intégré. Pour un serveur MCP
-externe, n'ajoute que des programmes de confiance : leurs outils peuvent agir
-sur la machine ou sur les comptes auxquels ils sont connectés.
+- [Site de présentation](https://begy02300.github.io/Gestion-GitHub-graphique/)
+- [Journal des changements](CHANGELOG.md)
+- [Feuille de route](docs/roadmap.md)
+- [Releases et téléchargements](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases)
+- [Signaler un problème](https://github.com/BEGY02300/Gestion-GitHub-graphique/issues)
+
+GitHub Desk est un projet indépendant et n'est pas affilié à GitHub.

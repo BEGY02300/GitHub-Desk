@@ -102,6 +102,13 @@ h2 { margin: 10px 0; font-size: clamp(30px, 4vw, 43px); line-height: 1.1; letter
 .feature-icon { display: grid; width: 39px; height: 39px; place-items: center; margin-bottom: 18px; border: 1px solid #334867; border-radius: 11px; background: #1a2a43; color: var(--cyan); font-size: 18px; }
 .feature h3 { margin: 0 0 7px; font-size: 16px; }
 .feature p { margin: 0; color: var(--muted); font-size: 13px; }
+.highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.highlight { min-height: 186px; padding: 22px; border: 1px solid #334867; border-radius: 15px; background: linear-gradient(145deg, #182740, #111a2b 75%); }
+.highlight-tag { display: inline-flex; padding: 5px 8px; border: 1px solid #35516d; border-radius: 7px; color: var(--cyan); font-size: 10px; font-weight: 750; letter-spacing: .1em; }
+.highlight h3 { margin: 16px 0 7px; font-size: 16px; }
+.highlight p { margin: 0; color: var(--muted); font-size: 13px; }
+.highlight code { color: #c3d3f0; font-size: .92em; }
+.project-links { margin-top: 21px; }
 .trust { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
 .trust-panel { padding: 25px; border: 1px solid var(--border); border-radius: 16px; background: #101a2a; }
 .trust-list { display: grid; gap: 15px; margin: 0; padding: 0; list-style: none; }
@@ -124,7 +131,7 @@ h2 { margin: 10px 0; font-size: clamp(30px, 4vw, 43px); line-height: 1.1; letter
 }
 @media (max-width: 620px) {
   .nav-links a:not(.button) { display: none; }
-  .features, .platforms { grid-template-columns: 1fr; }
+  .features, .highlights, .platforms { grid-template-columns: 1fr; }
   .window-body { grid-template-columns: 90px 1fr; }
   .mock-sidebar { font-size: 9px; }
   .mock-main { padding: 15px 10px; }
