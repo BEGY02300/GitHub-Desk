@@ -8,9 +8,11 @@
   <meta property="og:title" content="GitHub Desk — GitHub, simplement">
   <meta property="og:description" content="Tes dépôts, branches et pull requests dans une application de bureau, avec un cache local et sans terminal qui s'ouvre à chaque action.">
   <meta property="og:image" content="assets/app-preview.svg">
+  <meta name="color-scheme" content="dark">
   <title>GitHub Desk — GitHub, simplement</title>
   <link rel="icon" href="assets/github-desk.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
   <header class="header">
@@ -21,7 +23,7 @@
       </a>
       <div class="nav-links">
         <a href="#fonctionnalites">Fonctionnalités</a>
-        <a href="#nouveautes">Nouveautés</a>
+        <a href="#nouveautes">Versions</a>
         <a href="#confiance">Confidentialité</a>
         <a href="#compatibilite">Compatibilité</a>
         <a class="button" href="installation.html">Guide d’installation</a>
@@ -37,10 +39,11 @@
         <h1>GitHub, <span>plus simple.</span></h1>
         <p class="hero-copy">Gère tes dépôts, branches, issues et pull requests depuis une application de bureau claire. Tes données consultées restent disponibles localement.</p>
         <div class="actions">
-          <a class="button primary" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest">Télécharger l’application <span aria-hidden="true">→</span></a>
+          <a class="button primary" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest">Dernière version <span aria-hidden="true">→</span></a>
           <a class="button" href="#fonctionnalites">Découvrir les fonctions</a>
         </div>
         <p class="fine-print">Windows 10/11 · macOS · Linux · Code source public</p>
+        <p class="live-status" id="release-status" role="status" aria-live="polite">Consulte la dernière release GitHub et ses téléchargements vérifiés.</p>
       </div>
       <div class="product-card" role="img" aria-label="Aperçu de l'interface GitHub Desk avec ses dépôts et statistiques">
         <div class="window-top"><i></i><i></i><i></i><span>GitHub Desk</span></div>
@@ -92,30 +95,48 @@
       <div class="container">
         <div class="section-heading">
           <div class="eyebrow">Le projet avance</div>
-          <h2>Un projet vivant, des changements visibles.</h2>
-          <p>Les nouvelles versions, les changements et les priorités sont publics. Les détails sont mis à jour avec le dépôt.</p>
+          <h2>Les nouveautés, directement depuis GitHub.</h2>
+          <p>La page récupère à l’ouverture les informations publiques du dépôt : release, notes, fichiers à télécharger et activité récente.</p>
         </div>
-        <div class="highlights">
-          <article class="highlight">
-            <span class="highlight-tag">PUBLICATION</span>
-            <h3>Builds pour les trois systèmes</h3>
-            <p>Un push sur <code>main</code> construit Windows, macOS et Linux, puis publie une release versionnée avec ses checksums.</p>
-          </article>
-          <article class="highlight">
-            <span class="highlight-tag">SITE</span>
-            <h3>Documentation publiée automatiquement</h3>
-            <p>Les changements dans <code>docs/</code> relancent GitHub Pages. Un administrateur doit activer Pages une seule fois dans les réglages du dépôt.</p>
-          </article>
-          <article class="highlight">
-            <span class="highlight-tag">TRANSPARENCE</span>
-            <h3>Changelog et feuille de route publics</h3>
-            <p>Retrouve les fonctions livrées, les améliorations en cours et les prochaines étapes du projet.</p>
-          </article>
+        <div class="release-panel" aria-labelledby="latest-release-title">
+          <div class="release-topline">
+            <span class="highlight-tag">DERNIÈRE RELEASE</span>
+            <span class="live-indicator"><span aria-hidden="true"></span> <span id="release-updated">Synchronisation avec GitHub…</span></span>
+          </div>
+          <div class="release-heading">
+            <div>
+              <h3 id="latest-release-title">Versions et téléchargements</h3>
+              <p id="release-description">Les fichiers sont récupérés depuis la release officielle du dépôt.</p>
+            </div>
+            <a class="button" id="release-notes" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest" target="_blank" rel="noreferrer">Notes de version</a>
+          </div>
+          <div class="release-downloads">
+            <a class="download-option" id="download-windows" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest" target="_blank" rel="noreferrer"><span class="download-system">Windows</span><span class="download-file">Voir la dernière release <span aria-hidden="true">↗</span></span></a>
+            <a class="download-option" id="download-macos" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest" target="_blank" rel="noreferrer"><span class="download-system">macOS</span><span class="download-file">Voir la dernière release <span aria-hidden="true">↗</span></span></a>
+            <a class="download-option" id="download-linux" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest" target="_blank" rel="noreferrer"><span class="download-system">Linux</span><span class="download-file">Voir la dernière release <span aria-hidden="true">↗</span></span></a>
+          </div>
+          <div class="release-bottom">
+            <span id="release-published">Les liens s’ouvriront sur GitHub.</span>
+            <span class="checksum-links">
+              <a id="checksum-windows" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest" target="_blank" rel="noreferrer">SHA-256 Windows</a>
+              <a id="checksum-macos" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest" target="_blank" rel="noreferrer">macOS</a>
+              <a id="checksum-linux" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest" target="_blank" rel="noreferrer">Linux</a>
+            </span>
+          </div>
         </div>
-        <div class="actions project-links">
-          <a class="button" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Lire le changelog <span aria-hidden="true">→</span></a>
-          <a class="button" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/blob/main/docs/roadmap.md" target="_blank" rel="noreferrer">Voir la feuille de route</a>
-          <a class="button" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases" target="_blank" rel="noreferrer">Toutes les versions</a>
+        <div class="activity-panel">
+          <div class="activity-heading">
+            <div><div class="eyebrow">Activité du dépôt</div><h3>Les derniers changements</h3></div>
+            <a class="text-link" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/commits/main/" target="_blank" rel="noreferrer">Tout voir sur GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="live-status" id="activity-status" role="status" aria-live="polite">Chargement de l’activité publique…</p>
+          <ol class="activity-list" id="activity-list"></ol>
+        </div>
+        <div class="actions project-links follow-links">
+          <a class="button primary" href="https://github.com/BEGY02300/Gestion-GitHub-graphique" target="_blank" rel="noreferrer">Suivre le projet sur GitHub <span aria-hidden="true">↗</span></a>
+          <a class="button" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases.atom" target="_blank" rel="noreferrer">Suivre les releases (RSS)</a>
+          <a class="button" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Changelog</a>
+          <a class="button" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/blob/main/docs/roadmap.md" target="_blank" rel="noreferrer">Feuille de route</a>
         </div>
       </div>
     </section>
@@ -162,15 +183,15 @@
         <div class="eyebrow">Prêt à essayer ?</div>
         <h2>Commence par la dernière version.</h2>
         <p>Consulte les fichiers, les notes et les sommes SHA-256 de chaque version avant de l’installer.</p>
-        <a class="button primary" href="https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest">Voir les téléchargements <span aria-hidden="true">→</span></a>
+        <a class="button primary" href="#nouveautes">Choisir mon téléchargement <span aria-hidden="true">→</span></a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer-row">
-      <span>GitHub Desk · Projet open source indépendant, non affilié à GitHub.</span>
-      <span><a href="https://github.com/BEGY02300/Gestion-GitHub-graphique">Code source</a> · <a href="https://github.com/BEGY02300/Gestion-GitHub-graphique/issues">Signaler un problème</a></span>
+      <span>GitHub Desk · Projet indépendant, non affilié à GitHub.</span>
+      <span><a href="legal.html">Mentions légales &amp; confidentialité</a> · <a href="https://github.com/BEGY02300/Gestion-GitHub-graphique">Code source</a> · <a href="https://github.com/BEGY02300/Gestion-GitHub-graphique/issues">Aide</a></span>
     </div>
   </footer>
 </body>

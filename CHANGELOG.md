@@ -8,6 +8,13 @@ fonctionnalités du projet.
 
 ### Ajouté
 
+- Fil de releases et d’activité GitHub synchronisé au chargement du site, avec
+  liens directs vers les archives Windows, macOS, Linux et leurs SHA-256.
+- Page « Mentions légales & confidentialité » avec transparence sur les données
+  du site et champs éditeur à compléter.
+- Feuille de route recentrée sur les essais de lancement, l’installation et la
+  confiance autour des releases.
+- Navigation pour suivre le dépôt sur GitHub ou s’abonner au flux RSS des releases.
 - Guide d'installation pour Windows, macOS, Debian/Ubuntu, Fedora, Arch et
   openSUSE.
 - Détail des prérequis WebView2, GTK 3, WebKitGTK et GitHub CLI par système.

@@ -1,8 +1,8 @@
 # Feuille de route GitHub Desk
 
-Les priorités évoluent selon les retours et les problèmes signalés.
-Cette feuille de route est indicative : une case cochée décrit un travail déjà
-présent dans le dépôt, pas une promesse de date de livraison.
+La première étape du projet est livrée : l’application, les builds, les guides
+et le site sont disponibles. Cette nouvelle feuille de route se concentre sur
+les améliorations utiles qui restent à faire ; elle ne promet pas de dates.
 
 ## Carte du projet
 
@@ -29,7 +29,7 @@ flowchart TB
     REPO --> PAGES
 ```
 
-## Déjà disponible
+## Livré
 
 - [x] Tableau de bord en français, navigation intégrée et photo de profil mise
   en cache.
@@ -42,33 +42,43 @@ flowchart TB
 - [x] Builds Windows, macOS et Linux et releases versionnées par GitHub Actions.
 - [x] Sommes SHA-256 pour vérifier les archives publiées.
 - [x] Site de présentation responsive et déploiement GitHub Pages automatisé.
+- [x] Guides d’installation pour Windows, macOS et les distributions Linux courantes.
+- [x] Téléchargements par plateforme et informations de release synchronisés
+  depuis l’API publique GitHub.
+- [x] Affichage sur le site des derniers changements du dépôt et liens de suivi
+  GitHub / RSS.
+- [x] Première page de mentions légales et de confidentialité ; coordonnées de
+  l’éditeur à compléter avant de la considérer comme finalisée.
 
-## Priorités suivantes
+## Prochaines priorités
 
-### Fiabilité et publication
+### 1. Confiance et qualité des versions
 
 - [ ] Tester le démarrage réel des artefacts sur Windows 10/11, macOS Intel et
   Apple Silicon, ainsi que Linux.
 - [ ] Ajouter des tests de fumée par système après le packaging.
-- [ ] Étudier la signature des exécutables Windows et la signature/notarisation
-  macOS avec des certificats éditeur.
-- [ ] Automatiser une vérification d'intégrité des fichiers publiés sur chaque
-  release.
+- [ ] Documenter une procédure vérifiable de signalement privé des problèmes de
+  sécurité et les versions encore maintenues.
+- [ ] Étudier la signature Windows et la signature/notarisation macOS lorsque
+  des certificats éditeur et un budget seront disponibles.
 
-### Expérience utilisateur
+### 2. Une installation plus simple
 
-- [x] Ajouter un guide d'installation pour Windows, macOS et les distributions
-  Linux courantes.
 - [ ] Rendre les erreurs de dépendances système plus explicites dans l'app.
-- [ ] Ajouter des captures d'écran réelles, avec données personnelles masquées.
+- [ ] Ajouter des captures d’écran réelles et accessibles, avec données
+  personnelles masquées.
+- [ ] Vérifier les étapes d’installation et les noms de paquets sur les dernières
+  versions prises en charge de chaque distribution.
 
-### Qualité et communauté
+### 3. Utilisation et communauté
 
 - [ ] Documenter les droits GitHub CLI minimum nécessaires par fonctionnalité.
 - [ ] Ajouter un modèle de rapport de bug et un modèle de demande de
   fonctionnalité.
-- [ ] Publier une politique de support des versions et une politique de
-  signalement de vulnérabilité.
+- [ ] Recueillir des retours sur le flux des releases et améliorer les
+  téléchargements selon les plateformes les plus utilisées.
+- [ ] Compléter les informations de l’éditeur et les coordonnées sur la page
+  légale.
 
 ## Cycle de publication
 
@@ -83,13 +93,16 @@ sequenceDiagram
     Dev->>Repo: Push main ou tag vX.Y.Z
     Repo->>CI: Tests + build sur les runners OS
     CI->>Release: Archives versionnées + SHA-256 + notes
+    Repo-->>Pages: L'API publique fournit la release et les commits récents
     Dev->>Repo: Modifie docs/
     Repo->>CI: Déclenche le workflow Pages
-    CI->>Pages: Publie le site statique
+    CI->>Pages: Publie les pages et guides
 ```
 
 ## Proposer une amélioration
 
 Ouvre une [issue](https://github.com/BEGY02300/Gestion-GitHub-graphique/issues)
 avec le système, la version et les étapes pour reproduire le besoin. N'inclus
-pas de jeton GitHub, de mot de passe ni de données privées.
+pas de jeton GitHub, de mot de passe ni de données privées. La procédure de
+signalement privé de vulnérabilité reste à publier : n'ajoute pas les détails
+d'une vulnérabilité non corrigée à une issue publique.

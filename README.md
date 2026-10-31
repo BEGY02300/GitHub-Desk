@@ -12,6 +12,7 @@ pull requests, issues et workflows — sans le terminal au quotidien.
 [Télécharger la dernière version](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest)
 · [Site du projet](https://begy02300.github.io/Gestion-GitHub-graphique/)
 · [Guide d’installation](https://begy02300.github.io/Gestion-GitHub-graphique/installation.html)
+· [Mentions légales](https://begy02300.github.io/Gestion-GitHub-graphique/legal.html)
 · [Feuille de route](docs/roadmap.md)
 · [Journal des changements](CHANGELOG.md)
 
@@ -47,9 +48,11 @@ vérifier les changements en ligne.
 ## Télécharger
 
 Les versions publiées sont construites automatiquement pour Windows, macOS et
-Linux par GitHub Actions. Ouvre la [dernière release](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest)
-et choisis l'archive de ton système. Chaque paquet est accompagné d'une somme
-SHA-256.
+Linux par GitHub Actions. Le [site du projet](https://begy02300.github.io/Gestion-GitHub-graphique/)
+récupère la dernière release, ses paquets, ses sommes SHA-256 et les commits
+récents directement depuis l'API GitHub. Tu peux aussi ouvrir la
+[dernière release](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest)
+et choisir l'archive de ton système.
 
 | Système | Paquet | Prérequis |
 |---|---|---|
@@ -143,7 +146,9 @@ des fonctionnalités livrées est aussi conservé dans le
 
 GitHub Pages est activé pour ce dépôt et le premier déploiement a réussi. Les
 modifications de `docs/`, du README ou du changelog déclenchent automatiquement
-les publications suivantes.
+les publications suivantes. La liste des versions et l’activité du dépôt sont
+chargées depuis l’API GitHub à chaque visite, indépendamment du dernier
+déploiement Pages.
 
 ## Feuille de route
 
@@ -192,6 +197,7 @@ qu'après action explicite : connecte uniquement des programmes de confiance.
 
 - [Site de présentation](https://begy02300.github.io/Gestion-GitHub-graphique/)
 - [Guide d'installation Windows, macOS et Linux](https://begy02300.github.io/Gestion-GitHub-graphique/installation.html)
+- [Mentions légales et confidentialité](https://begy02300.github.io/Gestion-GitHub-graphique/legal.html)
 - [Journal des changements](CHANGELOG.md)
 - [Feuille de route](docs/roadmap.md)
 - [Releases et téléchargements](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases)

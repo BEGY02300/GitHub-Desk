@@ -33,6 +33,8 @@ jobs:
         run: |
           test -s docs/index.html
           test -s docs/installation.html
+          test -s docs/legal.html
+          test -s docs/site.js
           test -s docs/style.css
           test -s docs/assets/github-desk.svg
           test -s docs/assets/app-preview.svg
