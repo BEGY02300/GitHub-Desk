@@ -36,6 +36,8 @@ jobs:
           test -s docs/legal.html
           test -s docs/site.js
           test -s docs/style.css
+          test -s docs/robots.txt
+          test -s docs/sitemap.xml
           test -s docs/assets/github-desk.svg
           test -s docs/assets/app-preview.svg
       - name: Configuration de GitHub Pages

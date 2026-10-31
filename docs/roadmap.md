@@ -49,6 +49,12 @@ flowchart TB
   GitHub / RSS.
 - [x] Première page de mentions légales et de confidentialité ; coordonnées de
   l’éditeur à compléter avant de la considérer comme finalisée.
+- [x] Choix de parcours d’installation graphique ou par terminal, avec
+  téléchargement de la dernière release et contrôle SHA-256.
+- [x] Métadonnées SEO, `robots.txt` et `sitemap.xml` pour faciliter la
+  découverte des pages publiques par les moteurs de recherche.
+- [x] Présentation du site modernisée avec une mise en page claire, lisible et
+  responsive.
 
 ## Prochaines priorités
 

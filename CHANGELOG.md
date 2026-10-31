@@ -8,6 +8,12 @@ fonctionnalités du projet.
 
 ### Ajouté
 
+- Deux parcours d'installation : guidé à l'écran ou par terminal, avec
+  téléchargement de la dernière release et contrôle de sa somme SHA-256.
+- Métadonnées de partage et données structurées, fichier `robots.txt` et
+  sitemap pour aider les moteurs de recherche à découvrir le site.
+- Présentation responsive modernisée avec un style clair et une navigation
+  d'installation plus accessible.
 - Fil de releases et d’activité GitHub synchronisé au chargement du site, avec
   liens directs vers les archives Windows, macOS, Linux et leurs SHA-256.
 - Page « Mentions légales & confidentialité » avec transparence sur les données

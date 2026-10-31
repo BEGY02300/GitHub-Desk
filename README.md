@@ -54,6 +54,12 @@ récents directement depuis l'API GitHub. Tu peux aussi ouvrir la
 [dernière release](https://github.com/BEGY02300/Gestion-GitHub-graphique/releases/latest)
 et choisir l'archive de ton système.
 
+Le guide d'installation propose deux parcours : installation graphique avec le
+navigateur et l'explorateur de fichiers, ou téléchargement et vérification de
+la dernière release au terminal. Dans les deux cas, la première authentification
+GitHub CLI reste une étape séparée ; les opérations quotidiennes se font ensuite
+dans l'application.
+
 | Système | Paquet | Prérequis |
 |---|---|---|
 | Windows 10/11, x64 | `github-desk-windows-x64-vX.Y.Z.zip` | WebView2 et GitHub CLI (`gh`) |
@@ -149,6 +155,17 @@ modifications de `docs/`, du README ou du changelog déclenchent automatiquement
 les publications suivantes. La liste des versions et l’activité du dépôt sont
 chargées depuis l’API GitHub à chaque visite, indépendamment du dernier
 déploiement Pages.
+
+### Trouver le site dans Google
+
+Le dépôt contient `docs/robots.txt` et `docs/sitemap.xml` pour aider les moteurs
+de recherche à découvrir les pages publiques. Pour accélérer leur découverte,
+une personne propriétaire du site peut ajouter
+`https://begy02300.github.io/Gestion-GitHub-graphique/` dans
+[Google Search Console](https://search.google.com/search-console/) et y envoyer
+`https://begy02300.github.io/Gestion-GitHub-graphique/sitemap.xml`. L’exploration
+et l’indexation prennent du temps et ne garantissent pas une position précise
+dans les résultats.
 
 ## Feuille de route
 
